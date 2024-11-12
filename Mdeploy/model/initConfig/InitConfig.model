@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" xmi:id="_uX-tAKEsEe-vD7F72GfvXg" name="Ecommerce" url="https://ecommerce.com" version="1.0.0">
+  <dependencies xmi:id="_zl4VQKEsEe-vD7F72GfvXg" name="spring-boot-maven-plugin" version="2.5.7" scope="Compile" repository="org.springframework.boot"/>
+  <dependencies xmi:id="_PGH-MKEtEe-vD7F72GfvXg" name="junit" version="4.11" scope="test" repository="junit"/>
+  <buildconfigs xmi:id="_UOKPAKEtEe-vD7F72GfvXg" tool="Maven" cmd="mvn clean install" params="-DskipTests=false"/>
+  <tests xmi:id="_mUaCsKEtEe-vD7F72GfvXg" name="Unit test" type="Unit test" cmd=""/>
+</InitConfig:Project>
