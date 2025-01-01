@@ -4,7 +4,7 @@
     <semanticResources>gitlab.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_WvjnEMd0Ee-ao_RnhSJrXw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XZfU4Md0Ee-ao_RnhSJrXw" name="gitlab class diagram" repPath="#_XZWK8Md0Ee-ao_RnhSJrXw" changeId="b4800c5b-ede5-4b5b-a814-1609103226f1">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XZfU4Md0Ee-ao_RnhSJrXw" name="gitlab class diagram" repPath="#_XZWK8Md0Ee-ao_RnhSJrXw" changeId="2942c065-5bff-4550-951d-b212e1c2ee5a">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="gitlab.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -269,7 +269,7 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_0extIMgxEe-q_aquS2Uw1w" type="4001" element="_0d1R8MgxEe-q_aquS2Uw1w" source="_YD8nIMd0Ee-ao_RnhSJrXw" target="_YD6K4Md0Ee-ao_RnhSJrXw">
           <children xmi:type="notation:Node" xmi:id="_0eyUMMgxEe-q_aquS2Uw1w" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0eyUMcgxEe-q_aquS2Uw1w" x="29" y="-20"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0eyUMcgxEe-q_aquS2Uw1w" x="43" y="-12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_0eyUMsgxEe-q_aquS2Uw1w" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0eyUM8gxEe-q_aquS2Uw1w" x="1"/>
