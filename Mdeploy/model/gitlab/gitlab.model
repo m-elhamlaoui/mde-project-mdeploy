@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gitlab:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gitlab="https://gitlab.ma" xmi:id="_IUfboMjoEe-NmYHOoB6YxA" name="pipeline1">
+  <stages xsi:type="gitlab:Clone" xmi:id="_OMABkMjoEe-NmYHOoB6YxA" script="git clone" order="1" pipeline="_IUfboMjoEe-NmYHOoB6YxA" url="https://gitlab.com/Cristal32/repo1" creadentialId="mery" branch="master"/>
+  <stages xsi:type="gitlab:Build" xmi:id="_NjTC0MjoEe-NmYHOoB6YxA" script="mvn build" order="2" pipeline="_IUfboMjoEe-NmYHOoB6YxA"/>
+  <stages xsi:type="gitlab:Test" xmi:id="_PEhlAMjoEe-NmYHOoB6YxA" script="mvn test" order="3" pipeline="_IUfboMjoEe-NmYHOoB6YxA" ClassesToTest="TestClass.java">
+    <artifacts xmi:id="_KVaVEMjpEe-NmYHOoB6YxA" name="CloneArtifact" path="artifacts/" stage="_PEhlAMjoEe-NmYHOoB6YxA"/>
+  </stages>
+  <stages xsi:type="gitlab:Deploy" xmi:id="_PhtQQMjoEe-NmYHOoB6YxA" script="docker build" order="4" pipeline="_IUfboMjoEe-NmYHOoB6YxA"/>
+  <triggers xmi:id="_GCAmMMjpEe-NmYHOoB6YxA" pipeline="_IUfboMjoEe-NmYHOoB6YxA" name="pushTrigger" condition="on push"/>
+</gitlab:Pipeline>
