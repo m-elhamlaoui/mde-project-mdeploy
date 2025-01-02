@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated InitConfig -->
+      <package
+            uri="https://initConfig.ma"
+            class="InitConfig.InitConfigPackage"
+            genModel="model/initConfig/InitConfig.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated gitlab -->
+      <package
+            uri="https://gitlab.ma"
+            class="gitlab.GitlabPackage"
+            genModel="model/gitlab/gitlab.genmodel"/>
+   </extension>
+
+</plugin>
