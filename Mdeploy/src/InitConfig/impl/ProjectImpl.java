@@ -3,6 +3,7 @@
 package InitConfig.impl;
 
 import InitConfig.Build;
+import InitConfig.Deploy;
 import InitConfig.InitConfigPackage;
 import InitConfig.Project;
 import InitConfig.Test;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link InitConfig.impl.ProjectImpl#getBranch <em>Branch</em>}</li>
  *   <li>{@link InitConfig.impl.ProjectImpl#getBuildconfigs <em>Buildconfigs</em>}</li>
  *   <li>{@link InitConfig.impl.ProjectImpl#getTests <em>Tests</em>}</li>
+ *   <li>{@link InitConfig.impl.ProjectImpl#getDeployconfigs <em>Deployconfigs</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +122,16 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected EList<Test> tests;
+
+	/**
+	 * The cached value of the '{@link #getDeployconfigs() <em>Deployconfigs</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeployconfigs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Deploy> deployconfigs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,12 +253,27 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
+	public EList<Deploy> getDeployconfigs() {
+		if (deployconfigs == null) {
+			deployconfigs = new EObjectContainmentEList<Deploy>(Deploy.class, this, InitConfigPackage.PROJECT__DEPLOYCONFIGS);
+		}
+		return deployconfigs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InitConfigPackage.PROJECT__BUILDCONFIGS:
 				return ((InternalEList<?>)getBuildconfigs()).basicRemove(otherEnd, msgs);
 			case InitConfigPackage.PROJECT__TESTS:
 				return ((InternalEList<?>)getTests()).basicRemove(otherEnd, msgs);
+			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
+				return ((InternalEList<?>)getDeployconfigs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -269,6 +296,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getBuildconfigs();
 			case InitConfigPackage.PROJECT__TESTS:
 				return getTests();
+			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
+				return getDeployconfigs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,6 +328,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				getTests().clear();
 				getTests().addAll((Collection<? extends Test>)newValue);
 				return;
+			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
+				getDeployconfigs().clear();
+				getDeployconfigs().addAll((Collection<? extends Deploy>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -326,6 +359,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case InitConfigPackage.PROJECT__TESTS:
 				getTests().clear();
 				return;
+			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
+				getDeployconfigs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +384,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return buildconfigs != null && !buildconfigs.isEmpty();
 			case InitConfigPackage.PROJECT__TESTS:
 				return tests != null && !tests.isEmpty();
+			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
+				return deployconfigs != null && !deployconfigs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

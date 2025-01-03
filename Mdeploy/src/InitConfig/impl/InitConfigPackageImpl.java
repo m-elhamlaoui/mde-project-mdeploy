@@ -177,6 +177,16 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_Deployconfigs() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBuild() {
 		return buildEClass;
 	}
@@ -307,6 +317,16 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 	 * @generated
 	 */
 	@Override
+	public EReference getDeploy_Project() {
+		return (EReference)deployEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InitConfigFactory getInitConfigFactory() {
 		return (InitConfigFactory)getEFactoryInstance();
 	}
@@ -336,6 +356,7 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 		createEAttribute(projectEClass, PROJECT__BRANCH);
 		createEReference(projectEClass, PROJECT__BUILDCONFIGS);
 		createEReference(projectEClass, PROJECT__TESTS);
+		createEReference(projectEClass, PROJECT__DEPLOYCONFIGS);
 
 		buildEClass = createEClass(BUILD);
 		createEAttribute(buildEClass, BUILD__TOOL);
@@ -352,6 +373,7 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 
 		deployEClass = createEClass(DEPLOY);
 		createEAttribute(deployEClass, DEPLOY__CMD);
+		createEReference(deployEClass, DEPLOY__PROJECT);
 	}
 
 	/**
@@ -390,6 +412,7 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 		initEAttribute(getProject_Branch(), ecorePackage.getEString(), "branch", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Buildconfigs(), this.getBuild(), null, "buildconfigs", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Tests(), this.getTest(), null, "tests", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Deployconfigs(), this.getDeploy(), null, "deployconfigs", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buildEClass, Build.class, "Build", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBuild_Tool(), ecorePackage.getEString(), "tool", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -406,6 +429,7 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 
 		initEClass(deployEClass, Deploy.class, "Deploy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploy_Cmd(), ecorePackage.getEString(), "cmd", null, 0, 1, Deploy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeploy_Project(), this.getProject(), null, "project", null, 1, 1, Deploy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
