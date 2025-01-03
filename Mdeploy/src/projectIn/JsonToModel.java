@@ -17,7 +17,7 @@ public class JsonToModel {
     public static void main(String[] args) throws Exception {
         // Parse JSON
         ObjectMapper mapper = new ObjectMapper();
-        ProjectJson projectData = mapper.readValue(new File("project.json"), ProjectJson.class);
+        ProjectJson projectData = mapper.readValue(new File("src/projectIn/project.json"), ProjectJson.class);
 
         // Create EMF model instances
         InitConfigFactory factory = InitConfigFactory.eINSTANCE;
@@ -79,7 +79,7 @@ public class JsonToModel {
         ResourceSetImpl resSet = new ResourceSetImpl();
 
         // Create a Resource for saving the model to an XMI file
-        Resource resource = resSet.createResource(URI.createFileURI("project.xmi"));
+        Resource resource = resSet.createResource(URI.createFileURI("src/projectIn/project.xmi"));
 
         // Add the Project model to the resource
         resource.getContents().add(project);
