@@ -1,1 +1,60 @@
+# Eclipse and Epsilon specific
+/.classpath
+/.project
+/.settings/
 /bin/
+/target/
+/build/
+
+gen/
+*.genmodel
+*.xmi
+*.ecore
+*.edit/
+*.editor/
+.externalToolBuilders/
+
+# Generated models and temporary files
+*.ecorediag
+*.ecore.edit
+*.ecore.editor
+*.ecore.genmodel
+*.ecore.xmi
+*.model_diagram
+*.genmodel_diagram
+
+# Epsilon-generated files
+*.egloutput
+*.evlreport
+*.temp
+*.log
+
+# Temporary and backup files
+*.bak
+*.tmp
+*.swp
+*.log
+
+# Java build and IDE files
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven specific
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+/release.properties
+/.mvn/timing.properties
+/mvnw
+/mvnw.cmd
+/.mvn/wrapper/maven-wrapper.properties
+/.mvn/wrapper/maven-wrapper.jar
+
+# Node and frontend dependencies (if applicable)
+/node_modules/
+/dist/
+/build/
+
+plugin.properties
