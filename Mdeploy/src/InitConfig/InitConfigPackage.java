@@ -112,13 +112,22 @@ public interface InitConfigPackage extends EPackage {
 	int PROJECT__TESTS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Deployconfigs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__DEPLOYCONFIGS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 5;
+	int PROJECT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -286,13 +295,22 @@ public interface InitConfigPackage extends EPackage {
 	int DEPLOY__CMD = 0;
 
 	/**
+	 * The feature id for the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOY__PROJECT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Deploy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOY_FEATURE_COUNT = 1;
+	int DEPLOY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Deploy</em>' class.
@@ -368,6 +386,17 @@ public interface InitConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProject_Tests();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getDeployconfigs <em>Deployconfigs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Deployconfigs</em>'.
+	 * @see InitConfig.Project#getDeployconfigs()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Deployconfigs();
 
 	/**
 	 * Returns the meta object for class '{@link InitConfig.Build <em>Build</em>}'.
@@ -510,6 +539,17 @@ public interface InitConfigPackage extends EPackage {
 	EAttribute getDeploy_Cmd();
 
 	/**
+	 * Returns the meta object for the reference '{@link InitConfig.Deploy#getProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Project</em>'.
+	 * @see InitConfig.Deploy#getProject()
+	 * @see #getDeploy()
+	 * @generated
+	 */
+	EReference getDeploy_Project();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +621,14 @@ public interface InitConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT__TESTS = eINSTANCE.getProject_Tests();
+
+		/**
+		 * The meta object literal for the '<em><b>Deployconfigs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__DEPLOYCONFIGS = eINSTANCE.getProject_Deployconfigs();
 
 		/**
 		 * The meta object literal for the '{@link InitConfig.impl.BuildImpl <em>Build</em>}' class.
@@ -691,6 +739,14 @@ public interface InitConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPLOY__CMD = eINSTANCE.getDeploy_Cmd();
+
+		/**
+		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOY__PROJECT = eINSTANCE.getDeploy_Project();
 
 	}
 

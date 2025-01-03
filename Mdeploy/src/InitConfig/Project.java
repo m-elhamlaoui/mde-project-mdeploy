@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link InitConfig.Project#getBranch <em>Branch</em>}</li>
  *   <li>{@link InitConfig.Project#getBuildconfigs <em>Buildconfigs</em>}</li>
  *   <li>{@link InitConfig.Project#getTests <em>Tests</em>}</li>
+ *   <li>{@link InitConfig.Project#getDeployconfigs <em>Deployconfigs</em>}</li>
  * </ul>
  *
  * @see InitConfig.InitConfigPackage#getProject()
@@ -116,5 +117,17 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	EList<Test> getTests();
+
+	/**
+	 * Returns the value of the '<em><b>Deployconfigs</b></em>' containment reference list.
+	 * The list contents are of type {@link InitConfig.Deploy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deployconfigs</em>' containment reference list.
+	 * @see InitConfig.InitConfigPackage#getProject_Deployconfigs()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Deploy> getDeployconfigs();
 
 } // Project

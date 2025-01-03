@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link InitConfig.Deploy#getCmd <em>Cmd</em>}</li>
+ *   <li>{@link InitConfig.Deploy#getProject <em>Project</em>}</li>
  * </ul>
  *
  * @see InitConfig.InitConfigPackage#getDeploy()
@@ -42,5 +43,27 @@ public interface Deploy extends EObject {
 	 * @generated
 	 */
 	void setCmd(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Project</em>' reference.
+	 * @see #setProject(Project)
+	 * @see InitConfig.InitConfigPackage#getDeploy_Project()
+	 * @model required="true"
+	 * @generated
+	 */
+	Project getProject();
+
+	/**
+	 * Sets the value of the '{@link InitConfig.Deploy#getProject <em>Project</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Project</em>' reference.
+	 * @see #getProject()
+	 * @generated
+	 */
+	void setProject(Project value);
 
 } // Deploy
