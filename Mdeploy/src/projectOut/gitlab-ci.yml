@@ -1,0 +1,26 @@
+'# Pipeline': My Project
+Push Trigger:
+  trigger:
+  - push
+clone_stage:
+  stage: clone
+  variables:
+    GIT_URL: https://example.com
+    CREDENTIAL_ID: null
+  script:
+  - git clone https://example.com
+  - git checkout main
+build_stage:
+  stage: build
+  script:
+  - build command for My Project
+test_stage:
+  stage: test
+  variables:
+    TEST_CLASSES: null
+  script:
+  - test command for My Project
+deploy_stage:
+  stage: deploy
+  script:
+  - deploy command for My Project
