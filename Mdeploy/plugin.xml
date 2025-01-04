@@ -22,4 +22,12 @@
             genModel="model/gitlab/gitlab.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated terraform -->
+      <package
+            uri="https://terraform.ma"
+            class="terraform.TerraformPackage"
+            genModel="model/terraform/terraform.genmodel"/>
+   </extension>
+
 </plugin>
