@@ -6,10 +6,6 @@
 /target/
 /build/
 
-gen/
-*.genmodel
-*.xmi
-*.ecore
 *.edit/
 *.editor/
 .externalToolBuilders/
@@ -18,10 +14,6 @@ gen/
 *.ecorediag
 *.ecore.edit
 *.ecore.editor
-*.ecore.genmodel
-*.ecore.xmi
-*.model_diagram
-*.genmodel_diagram
 
 # Epsilon-generated files
 *.egloutput
