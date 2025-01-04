@@ -7,6 +7,7 @@
     - [Initial project configuration metamodel](#initial-project-configuration-metamodel)
     - [Gitlab metamodel](#gitlab-metamodel)
 - [T2M transformation: Converting JSON data into initConfig model](#t2m-transformation-converting-json-data-into-initconfig-model)
+- [M2M transformation: From initConfig to Gitlab](#m2m-transformation-from-initconfig-to-gitlab)
 - [Contributors](#contributors)
 
 ## Requirements
@@ -35,6 +36,10 @@ Each stage may generate some artifacts.
 ## T2M transformation: Converting JSON data into initConfig model
 
 The script `JsontToModel.java` parses JSON data and converts it to an initConfig model of XMI format.
+
+## M2M transformation: From initConfig to Gitlab
+
+Eclipse Epsilon ETL Transformation rules to transform from initial configuration to gitlab model.
 
 ## Contributors
 - [@Cristal32](https://github.com/Cristal32)

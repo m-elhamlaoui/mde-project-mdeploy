@@ -176,22 +176,13 @@ public interface InitConfigPackage extends EPackage {
 	int BUILD__PARAMS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Project</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD__PROJECT = 3;
-
-	/**
 	 * The number of structural features of the '<em>Build</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_FEATURE_COUNT = 4;
+	int BUILD_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Build</em>' class.
@@ -249,22 +240,13 @@ public interface InitConfigPackage extends EPackage {
 	int TEST__STATUS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Project</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__PROJECT = 4;
-
-	/**
 	 * The number of structural features of the '<em>Test</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_FEATURE_COUNT = 5;
+	int TEST_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Test</em>' class.
@@ -295,22 +277,13 @@ public interface InitConfigPackage extends EPackage {
 	int DEPLOY__CMD = 0;
 
 	/**
-	 * The feature id for the '<em><b>Project</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOY__PROJECT = 1;
-
-	/**
 	 * The number of structural features of the '<em>Deploy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOY_FEATURE_COUNT = 2;
+	int DEPLOY_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Deploy</em>' class.
@@ -442,17 +415,6 @@ public interface InitConfigPackage extends EPackage {
 	EAttribute getBuild_Params();
 
 	/**
-	 * Returns the meta object for the reference '{@link InitConfig.Build#getProject <em>Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Project</em>'.
-	 * @see InitConfig.Build#getProject()
-	 * @see #getBuild()
-	 * @generated
-	 */
-	EReference getBuild_Project();
-
-	/**
 	 * Returns the meta object for class '{@link InitConfig.Test <em>Test</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,17 +469,6 @@ public interface InitConfigPackage extends EPackage {
 	EAttribute getTest_Status();
 
 	/**
-	 * Returns the meta object for the reference '{@link InitConfig.Test#getProject <em>Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Project</em>'.
-	 * @see InitConfig.Test#getProject()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EReference getTest_Project();
-
-	/**
 	 * Returns the meta object for class '{@link InitConfig.Deploy <em>Deploy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -537,17 +488,6 @@ public interface InitConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeploy_Cmd();
-
-	/**
-	 * Returns the meta object for the reference '{@link InitConfig.Deploy#getProject <em>Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Project</em>'.
-	 * @see InitConfig.Deploy#getProject()
-	 * @see #getDeploy()
-	 * @generated
-	 */
-	EReference getDeploy_Project();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -665,14 +605,6 @@ public interface InitConfigPackage extends EPackage {
 		EAttribute BUILD__PARAMS = eINSTANCE.getBuild_Params();
 
 		/**
-		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILD__PROJECT = eINSTANCE.getBuild_Project();
-
-		/**
 		 * The meta object literal for the '{@link InitConfig.impl.TestImpl <em>Test</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -715,14 +647,6 @@ public interface InitConfigPackage extends EPackage {
 		EAttribute TEST__STATUS = eINSTANCE.getTest_Status();
 
 		/**
-		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TEST__PROJECT = eINSTANCE.getTest_Project();
-
-		/**
 		 * The meta object literal for the '{@link InitConfig.impl.DeployImpl <em>Deploy</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -739,14 +663,6 @@ public interface InitConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPLOY__CMD = eINSTANCE.getDeploy_Cmd();
-
-		/**
-		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPLOY__PROJECT = eINSTANCE.getDeploy_Project();
 
 	}
 

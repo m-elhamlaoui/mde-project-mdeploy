@@ -227,16 +227,6 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 	 * @generated
 	 */
 	@Override
-	public EReference getBuild_Project() {
-		return (EReference)buildEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTest() {
 		return testEClass;
 	}
@@ -287,16 +277,6 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 	 * @generated
 	 */
 	@Override
-	public EReference getTest_Project() {
-		return (EReference)testEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDeploy() {
 		return deployEClass;
 	}
@@ -309,16 +289,6 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 	@Override
 	public EAttribute getDeploy_Cmd() {
 		return (EAttribute)deployEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDeploy_Project() {
-		return (EReference)deployEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -362,18 +332,15 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 		createEAttribute(buildEClass, BUILD__TOOL);
 		createEAttribute(buildEClass, BUILD__CMD);
 		createEAttribute(buildEClass, BUILD__PARAMS);
-		createEReference(buildEClass, BUILD__PROJECT);
 
 		testEClass = createEClass(TEST);
 		createEAttribute(testEClass, TEST__NAME);
 		createEAttribute(testEClass, TEST__TYPE);
 		createEAttribute(testEClass, TEST__CMD);
 		createEAttribute(testEClass, TEST__STATUS);
-		createEReference(testEClass, TEST__PROJECT);
 
 		deployEClass = createEClass(DEPLOY);
 		createEAttribute(deployEClass, DEPLOY__CMD);
-		createEReference(deployEClass, DEPLOY__PROJECT);
 	}
 
 	/**
@@ -418,18 +385,15 @@ public class InitConfigPackageImpl extends EPackageImpl implements InitConfigPac
 		initEAttribute(getBuild_Tool(), ecorePackage.getEString(), "tool", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuild_Cmd(), ecorePackage.getEString(), "cmd", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuild_Params(), ecorePackage.getEString(), "params", null, 0, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuild_Project(), this.getProject(), null, "project", null, 1, 1, Build.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Type(), ecorePackage.getEString(), "type", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Cmd(), ecorePackage.getEString(), "cmd", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Status(), ecorePackage.getEInt(), "status", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTest_Project(), this.getProject(), null, "project", null, 1, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deployEClass, Deploy.class, "Deploy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeploy_Cmd(), ecorePackage.getEString(), "cmd", null, 0, 1, Deploy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeploy_Project(), this.getProject(), null, "project", null, 1, 1, Deploy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
