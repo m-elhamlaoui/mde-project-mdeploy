@@ -17,18 +17,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/tool"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/cmd"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/params"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Build/project"/>
     </genClasses>
     <genClasses ecoreClass="InitConfig.ecore#//Test">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Test/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Test/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Test/cmd"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Test/status"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Test/project"/>
     </genClasses>
     <genClasses ecoreClass="InitConfig.ecore#//Deploy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Deploy/cmd"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Deploy/project"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

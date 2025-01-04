@@ -36,7 +36,6 @@ public class JsonToModel {
             build.setParams(buildData.getParams());
             
             // Establish bidirectional relationship
-            build.setProject(project);
             project.getBuildconfigs().add(build);
         }
 
@@ -49,7 +48,6 @@ public class JsonToModel {
             test.setStatus(testData.getStatus());
             
             // Establish bidirectional relationship
-            test.setProject(project);
             project.getTests().add(test);
         }
 
@@ -59,7 +57,6 @@ public class JsonToModel {
             deploy.setCmd(deployData.getCmd());
             
             // Establish bidirectional relationship
-            deploy.setProject(project);
             project.getDeployconfigs().add(deploy);
         }
 

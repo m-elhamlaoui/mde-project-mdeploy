@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link InitConfig.Test#getType <em>Type</em>}</li>
  *   <li>{@link InitConfig.Test#getCmd <em>Cmd</em>}</li>
  *   <li>{@link InitConfig.Test#getStatus <em>Status</em>}</li>
- *   <li>{@link InitConfig.Test#getProject <em>Project</em>}</li>
  * </ul>
  *
  * @see InitConfig.InitConfigPackage#getTest()
@@ -112,27 +111,5 @@ public interface Test extends EObject {
 	 * @generated
 	 */
 	void setStatus(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Project</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Project</em>' reference.
-	 * @see #setProject(Project)
-	 * @see InitConfig.InitConfigPackage#getTest_Project()
-	 * @model required="true"
-	 * @generated
-	 */
-	Project getProject();
-
-	/**
-	 * Sets the value of the '{@link InitConfig.Test#getProject <em>Project</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Project</em>' reference.
-	 * @see #getProject()
-	 * @generated
-	 */
-	void setProject(Project value);
 
 } // Test

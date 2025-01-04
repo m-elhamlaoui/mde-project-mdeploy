@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link InitConfig.Build#getTool <em>Tool</em>}</li>
  *   <li>{@link InitConfig.Build#getCmd <em>Cmd</em>}</li>
  *   <li>{@link InitConfig.Build#getParams <em>Params</em>}</li>
- *   <li>{@link InitConfig.Build#getProject <em>Project</em>}</li>
  * </ul>
  *
  * @see InitConfig.InitConfigPackage#getBuild()
@@ -89,27 +88,5 @@ public interface Build extends EObject {
 	 * @generated
 	 */
 	void setParams(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Project</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Project</em>' reference.
-	 * @see #setProject(Project)
-	 * @see InitConfig.InitConfigPackage#getBuild_Project()
-	 * @model required="true"
-	 * @generated
-	 */
-	Project getProject();
-
-	/**
-	 * Sets the value of the '{@link InitConfig.Build#getProject <em>Project</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Project</em>' reference.
-	 * @see #getProject()
-	 * @generated
-	 */
-	void setProject(Project value);
 
 } // Build
