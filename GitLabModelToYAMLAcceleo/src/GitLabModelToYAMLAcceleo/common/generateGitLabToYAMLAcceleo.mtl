@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generateGitLabToYAMLAcceleo('https://gitlab.ma')]
+
+
+[template public generateElement(anOclAny : OclAny)]
+
+[/template]

@@ -1,0 +1,42 @@
+# Eclipse specific files
+/.classpath
+/.project
+/.settings/
+
+# Acceleo generated files (optional, depending on your workflow)
+*.emtl
+
+# Generated Java code (optional, if you regenerate frequently)
+src-gen/
+
+# Temporary files created during modeling
+*.ecore_diagram
+*.ecoretools
+
+# Generated EMF code (optional, if you regenerate frequently)
+genmodel/
+model-gen/
+
+# Compiled class files
+*.class
+
+# Java build files
+/bin/
+
+# Maven
+/target/
+
+# Gradle
+/.gradle/
+/build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

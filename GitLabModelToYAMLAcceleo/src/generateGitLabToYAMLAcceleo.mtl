@@ -1,0 +1,34 @@
+[comment encoding = UTF-8 /]
+[module generateGitLabToYAMLAcceleo('https://gitlab.ma')]
+
+[template public generateGitLabToYAML(p : Pipeline)]
+[file ('gitlab-ci.yml', false, 'UTF-8')]
+# Start YAML generation for Pipeline
+name: [p.name/]
+
+stages:
+[for (s : Stage | p.stages)]
+  - name: [s.name/]
+    script:
+    [for (cmd : String | s.script)]
+      - [cmd/]
+    [/for]
+    order: [s.order/]
+    [if (not s.artifacts->isEmpty())]
+    artifacts:
+    [for (a : Artifact | s.artifacts)]
+      - name: [a.name/]
+        path: [a.path/]
+    [/for]
+    [/if]
+[/for]
+
+[if (not p.triggers->isEmpty())]
+triggers:
+[for (t : Trigger | p.triggers)]
+  - name: [t.name/]
+    condition: [t.condition/]
+[/for]
+[/if]
+[/file]
+[/template]
