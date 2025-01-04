@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<gitlab:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gitlab="https://gitlab.ma" name="My Project">
-  <stages xsi:type="gitlab:Clone" script="git clone https://example.com" pipeline="/" url="https://example.com" branch="main"/>
-  <stages xsi:type="gitlab:Build" script="build command for My Project" order="1" pipeline="/"/>
-  <stages xsi:type="gitlab:Test" script="test command for My Project" order="2" pipeline="/"/>
-  <stages xsi:type="gitlab:Deploy" script="deploy command for My Project" order="3" pipeline="/"/>
-  <triggers pipeline="/" name="Push Trigger" condition="push"/>
-</gitlab:Pipeline>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gitlab="https://gitlab.ma">
+  <gitlab:Pipeline name="My Project">
+    <stages xsi:type="gitlab:Clone" script="git clone https://example.com" pipeline="/0" url="https://example.com" branch="main"/>
+    <stages xsi:type="gitlab:Build" script="build command for My Project" order="1" pipeline="/0"/>
+    <stages xsi:type="gitlab:Test" script="test command for My Project" order="2" pipeline="/0"/>
+    <stages xsi:type="gitlab:Deploy" script="deploy command for My Project" order="3" pipeline="/0"/>
+    <triggers pipeline="/0" name="Push Trigger" condition="push"/>
+  </gitlab:Pipeline>
+  <gitlab:Pipeline name="My Project">
+    <stages xsi:type="gitlab:Clone" script="git clone https://example.com" pipeline="/1" url="https://example.com" branch="main"/>
+    <stages xsi:type="gitlab:Build" script="build command for My Project" order="1" pipeline="/1"/>
+    <stages xsi:type="gitlab:Test" script="test command for My Project" order="2" pipeline="/1"/>
+    <stages xsi:type="gitlab:Deploy" script="deploy command for My Project" order="3" pipeline="/1"/>
+    <triggers pipeline="/1" name="Push Trigger" condition="push"/>
+  </gitlab:Pipeline>
+</xmi:XMI>
