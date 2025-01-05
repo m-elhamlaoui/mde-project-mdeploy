@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<terraform:TerraformConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:terraform="http://terraform.ma">
+  <providers name="aws" version="~> 4.0">
+    <attributes key="region" value="us-west-2"/>
+    <attributes key="access_key" value="${var.aws_access_key}"/>
+    <attributes key="secret_key" value="${var.aws_secret_key}"/>
+  </providers>
+  
+  <variables name="aws_access_key" type="string"/>
+  <variables name="aws_secret_key" type="string"/>
+  <variables name="instance_type" type="string"/>
+  
+  <resources name="example_server" type="aws_instance">
+    <attributes key="ami" value="ami-0c55b159cbfafe1f0"/>
+    <attributes key="instance_type" value="${var.instance_type}"/>
+    <attributes key="tags" value="{Name = 'ExampleInstance'}"/>
+  </resources>
+  
+  <resources name="example_bucket" type="aws_s3_bucket">
+    <attributes key="bucket" value="my-terraform-bucket"/>
+    <attributes key="tags" value="{Environment = 'Dev'}"/>
+  </resources>
+  
+  <outputs name="instance_ip" value="${aws_instance.example_server.public_ip}"/>
+  <outputs name="bucket_name" value="${aws_s3_bucket.example_bucket.id}"/>
+</terraform:TerraformConfiguration>
