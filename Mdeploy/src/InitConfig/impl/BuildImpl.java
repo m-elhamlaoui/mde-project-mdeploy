@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link InitConfig.impl.BuildImpl#getTool <em>Tool</em>}</li>
+ *   <li>{@link InitConfig.impl.BuildImpl#getName <em>Name</em>}</li>
  *   <li>{@link InitConfig.impl.BuildImpl#getCmd <em>Cmd</em>}</li>
  *   <li>{@link InitConfig.impl.BuildImpl#getParams <em>Params</em>}</li>
  * </ul>
@@ -27,24 +27,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	/**
-	 * The default value of the '{@link #getTool() <em>Tool</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTool()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TOOL_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTool() <em>Tool</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTool()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String tool = TOOL_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCmd() <em>Cmd</em>}' attribute.
@@ -111,8 +111,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	 * @generated
 	 */
 	@Override
-	public String getTool() {
-		return tool;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	 * @generated
 	 */
 	@Override
-	public void setTool(String newTool) {
-		String oldTool = tool;
-		tool = newTool;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InitConfigPackage.BUILD__TOOL, oldTool, tool));
+			eNotify(new ENotificationImpl(this, Notification.SET, InitConfigPackage.BUILD__NAME, oldName, name));
 	}
 
 	/**
@@ -182,8 +182,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InitConfigPackage.BUILD__TOOL:
-				return getTool();
+			case InitConfigPackage.BUILD__NAME:
+				return getName();
 			case InitConfigPackage.BUILD__CMD:
 				return getCmd();
 			case InitConfigPackage.BUILD__PARAMS:
@@ -200,8 +200,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InitConfigPackage.BUILD__TOOL:
-				setTool((String)newValue);
+			case InitConfigPackage.BUILD__NAME:
+				setName((String)newValue);
 				return;
 			case InitConfigPackage.BUILD__CMD:
 				setCmd((String)newValue);
@@ -221,8 +221,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InitConfigPackage.BUILD__TOOL:
-				setTool(TOOL_EDEFAULT);
+			case InitConfigPackage.BUILD__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case InitConfigPackage.BUILD__CMD:
 				setCmd(CMD_EDEFAULT);
@@ -242,8 +242,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InitConfigPackage.BUILD__TOOL:
-				return TOOL_EDEFAULT == null ? tool != null : !TOOL_EDEFAULT.equals(tool);
+			case InitConfigPackage.BUILD__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case InitConfigPackage.BUILD__CMD:
 				return CMD_EDEFAULT == null ? cmd != null : !CMD_EDEFAULT.equals(cmd);
 			case InitConfigPackage.BUILD__PARAMS:
@@ -262,8 +262,8 @@ public class BuildImpl extends MinimalEObjectImpl.Container implements Build {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (tool: ");
-		result.append(tool);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", cmd: ");
 		result.append(cmd);
 		result.append(", params: ");

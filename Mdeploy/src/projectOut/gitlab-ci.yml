@@ -1,8 +1,10 @@
-'# Pipeline': My Project
-Push Trigger:
-  trigger:
-  - push
-clone_stage:
+stages:
+- clone
+- build
+- test
+- test
+- deploy
+clone:
   stage: clone
   variables:
     GIT_URL: https://example.com
@@ -10,17 +12,19 @@ clone_stage:
   script:
   - git clone https://example.com
   - git checkout main
-build_stage:
+build:
   stage: build
   script:
-  - build command for My Project
-test_stage:
+  - mvn clean install
+test:
   stage: test
   variables:
     TEST_CLASSES: null
   script:
-  - test command for My Project
-deploy_stage:
+  - mvn verify
+deploy:
   stage: deploy
+  only:
+  - push
   script:
-  - deploy command for My Project
+  - docker-compose up

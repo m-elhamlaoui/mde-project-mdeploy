@@ -9,12 +9,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Project/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Project/url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Project/branch"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Project/buildconfigs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Project/build"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Project/tests"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Project/deployconfigs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InitConfig.ecore#//Project/deploy"/>
     </genClasses>
     <genClasses ecoreClass="InitConfig.ecore#//Build">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/tool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/cmd"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Build/params"/>
     </genClasses>
@@ -26,6 +26,7 @@
     </genClasses>
     <genClasses ecoreClass="InitConfig.ecore#//Deploy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Deploy/cmd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InitConfig.ecore#//Deploy/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

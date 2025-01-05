@@ -8,13 +8,14 @@
     <genClasses ecoreClass="gitlab.ecore#//Pipeline">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Pipeline/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Pipeline/stages"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Pipeline/triggers"/>
     </genClasses>
     <genClasses image="false" ecoreClass="gitlab.ecore#//Stage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Stage/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Stage/script"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Stage/order"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Stage/pipeline"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Stage/artifacts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Stage/trigger"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Clone">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Clone/url"/>
@@ -32,9 +33,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Artifact/stage"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Trigger">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Trigger/pipeline"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Trigger/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Trigger/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Trigger/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

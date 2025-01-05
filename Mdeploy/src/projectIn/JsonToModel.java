@@ -31,12 +31,12 @@ public class JsonToModel {
         // Create Build configurations
         for (BuildJson buildData : projectData.getBuildConfigs()) {
             Build build = factory.createBuild();
-            build.setTool(buildData.getTool());
+            build.setName(buildData.getName());
             build.setCmd(buildData.getCmd());
             build.setParams(buildData.getParams());
             
             // Establish bidirectional relationship
-            project.getBuildconfigs().add(build);
+            project.getBuild().add(build);
         }
 
         // Create Tests
@@ -54,10 +54,11 @@ public class JsonToModel {
         // Create Deploy configurations
         for (DeployJson deployData : projectData.getDeployConfigs()) {
             Deploy deploy = factory.createDeploy();
+            deploy.setName(deployData.getName());
             deploy.setCmd(deployData.getCmd());
             
             // Establish bidirectional relationship
-            project.getDeployconfigs().add(deploy);
+            project.getDeploy().add(deploy);
         }
 
         // Print the model for validation
@@ -92,22 +93,23 @@ public class JsonToModel {
         System.out.println("Branch: " + project.getBranch());
 
         System.out.println("Build Configurations:");
-        for (Build build : project.getBuildconfigs()) {
-            System.out.println("  Tool: " + build.getTool());
+        for (Build build : project.getBuild()) {
+            System.out.println("  Name: " + build.getName());
             System.out.println("  Command: " + build.getCmd());
             System.out.println("  Params: " + build.getParams());
         }
 
         System.out.println("Tests:");
         for (Test test : project.getTests()) {
-            System.out.println("  Test Name: " + test.getName());
+            System.out.println("  Name: " + test.getName());
             System.out.println("  Type: " + test.getType());
             System.out.println("  Command: " + test.getCmd());
             System.out.println("  Status: " + test.getStatus());
         }
 
         System.out.println("Deploy Configurations:");
-        for (Deploy deploy : project.getDeployconfigs()) {
+        for (Deploy deploy : project.getDeploy()) {
+        	System.out.println("  Name: " + deploy.getName());
             System.out.println("  Command: " + deploy.getCmd());
         }
     }
@@ -119,13 +121,13 @@ class ProjectJson {
     private String url;
     private String branch;
 
-    @JsonProperty("buildconfigs")
+    @JsonProperty("build")
     private List<BuildJson> buildconfigs;
 
     @JsonProperty("tests")
     private List<TestJson> tests;
 
-    @JsonProperty("deployconfigs")
+    @JsonProperty("deploy")
     private List<DeployJson> deployconfigs;
 
     // Getters and setters
@@ -149,13 +151,13 @@ class ProjectJson {
 }
 
 class BuildJson {
-    private String tool;
+    private String name;
     private String cmd;
     private String params;
 
     // Getters and setters
-    public String getTool() { return tool; }
-    public void setTool(String tool) { this.tool = tool; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
     public String getCmd() { return cmd; }
     public void setCmd(String cmd) { this.cmd = cmd; }
@@ -185,9 +187,13 @@ class TestJson {
 }
 
 class DeployJson {
-    private String cmd;
+	private String name;
+	private String cmd;
 
     // Getters and setters
+	public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    
     public String getCmd() { return cmd; }
     public void setCmd(String cmd) { this.cmd = cmd; }
 }

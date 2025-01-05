@@ -3,7 +3,6 @@
 package InitConfig;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link InitConfig.Project#getName <em>Name</em>}</li>
  *   <li>{@link InitConfig.Project#getUrl <em>Url</em>}</li>
  *   <li>{@link InitConfig.Project#getBranch <em>Branch</em>}</li>
- *   <li>{@link InitConfig.Project#getBuildconfigs <em>Buildconfigs</em>}</li>
+ *   <li>{@link InitConfig.Project#getBuild <em>Build</em>}</li>
  *   <li>{@link InitConfig.Project#getTests <em>Tests</em>}</li>
- *   <li>{@link InitConfig.Project#getDeployconfigs <em>Deployconfigs</em>}</li>
+ *   <li>{@link InitConfig.Project#getDeploy <em>Deploy</em>}</li>
  * </ul>
  *
  * @see InitConfig.InitConfigPackage#getProject()
@@ -95,16 +94,16 @@ public interface Project extends EObject {
 	void setBranch(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Buildconfigs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Build</b></em>' containment reference list.
 	 * The list contents are of type {@link InitConfig.Build}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buildconfigs</em>' containment reference list.
-	 * @see InitConfig.InitConfigPackage#getProject_Buildconfigs()
+	 * @return the value of the '<em>Build</em>' containment reference list.
+	 * @see InitConfig.InitConfigPackage#getProject_Build()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Build> getBuildconfigs();
+	EList<Build> getBuild();
 
 	/**
 	 * Returns the value of the '<em><b>Tests</b></em>' containment reference list.
@@ -119,15 +118,15 @@ public interface Project extends EObject {
 	EList<Test> getTests();
 
 	/**
-	 * Returns the value of the '<em><b>Deployconfigs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Deploy</b></em>' containment reference list.
 	 * The list contents are of type {@link InitConfig.Deploy}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deployconfigs</em>' containment reference list.
-	 * @see InitConfig.InitConfigPackage#getProject_Deployconfigs()
+	 * @return the value of the '<em>Deploy</em>' containment reference list.
+	 * @see InitConfig.InitConfigPackage#getProject_Deploy()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Deploy> getDeployconfigs();
+	EList<Deploy> getDeploy();
 
 } // Project
