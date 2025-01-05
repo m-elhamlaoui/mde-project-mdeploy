@@ -17,13 +17,13 @@ public class TerraformGenerator {
         
         // Initialize EMF - Register the XMI factory for both extensions
         Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-        reg.getExtensionToFactoryMap().put("model", new XMIResourceFactoryImpl());
+        reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
         reg.getExtensionToFactoryMap().put("terraform", new XMIResourceFactoryImpl());
         reg.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl()); // Fallback for any extension
         
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
-        URI modelURI = URI.createFileURI("uploads/terraform/terraform.model");
+        URI modelURI = URI.createFileURI("uploads/terraform/terraform.xmi");
         
         try {
             Resource resource = resSet.getResource(modelURI, true);

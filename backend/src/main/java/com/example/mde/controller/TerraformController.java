@@ -17,11 +17,11 @@ import com.example.mde.service.TerraformService;
 @RequestMapping("/api/terraform")
 public class TerraformController {
 
-	private final TerraformService terrraformService;
+	private final TerraformService terraformService;
 
     @Autowired
     public TerraformController(TerraformService terrraformService) {
-        this.terrraformService = terrraformService;
+        this.terraformService = terrraformService;
     }
 
  // Endpoint to receive and store the JSON file
@@ -40,10 +40,10 @@ public class TerraformController {
             file.transferTo(jsonFile);
 
             // Call the service to execute the transformation
-            String terraPath = terrraformService.executeTransformation(jsonFile.getAbsolutePath());
+            String terraPath = terraformService.executeTransformation(jsonFile.getAbsolutePath());
 
             if (terraPath != null) {
-                // Read the generated YAML file
+                // Read the generated Terraform file
                 File terraFile = new File(terraPath);
                 if (terraFile.exists()) {
                     return ResponseEntity.ok()
