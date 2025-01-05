@@ -4,11 +4,14 @@
 
 - [Requirements](#requirements)
 - [Metamodels](#metamodels)
-    - [Initial project configuration metamodel](#initial-project-configuration-metamodel)
-    - [Gitlab metamodel](#gitlab-metamodel)
+  - [Initial project configuration metamodel](#initial-project-configuration-metamodel)
+  - [Gitlab metamodel](#gitlab-metamodel)
 - [T2M transformation: Converting JSON data into initConfig model](#t2m-transformation-converting-json-data-into-initconfig-model)
 - [M2M transformation: From initConfig to Gitlab](#m2m-transformation-from-initconfig-to-gitlab)
 - [M2T transformation: From Gitlab to Yaml](#m2t-transformation-from-gitlab-to-yaml)
+- [T2M transformation: Converting JSON data into terraform model](#m2t-transformation-converting-json-data-into-terraform-model)
+- [M2T transformation: From Terraform to tf](#m2t-transformation-from-terraform-to-tf)
+
 - [Contributors](#contributors)
 
 ## Requirements
@@ -44,7 +47,12 @@ Eclipse Epsilon ETL Transformation rules to transform from initial configuration
 
 ## M2T transformation: From Gitlab to Yaml
 
+## T2M transformation: Converting JSON data into terraform model
+
+## M2T transformation: From Terraform to tf
+
 ## Contributors
+
 - [@Cristal32](https://github.com/Cristal32)
 - [@HM2811](https://github.com/HM2811)
 - [@fatibr19](https://github.com/fatibr19)
