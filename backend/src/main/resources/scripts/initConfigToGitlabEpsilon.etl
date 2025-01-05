@@ -1,0 +1,80 @@
+rule ProjectToPipeline
+    transform initConfigProject : InitConfig!Project
+    to gitlabPipeline : gitlab!Pipeline {
+
+    gitlabPipeline.name = initConfigProject.name;
+
+    // Create the trigger once
+    var trigger = createTrigger();
+
+    // Create the Clone stage
+    gitlabPipeline.stages.add(createCloneStage(initConfigProject, trigger));
+
+    // Create multiple Build stages
+    for (build in initConfigProject.build) {
+        gitlabPipeline.stages.add(createBuildStage(build, trigger));
+    }
+
+    // Create multiple Test stages
+    for (test in initConfigProject.tests) {
+        gitlabPipeline.stages.add(createTestStage(test, trigger));
+    }
+
+    // Create multiple Deploy stages
+    for (deploy in initConfigProject.deploy) {
+        gitlabPipeline.stages.add(createDeployStage(deploy, trigger));
+    }
+
+    // Call the operation to update bidirectional links
+    updateBidirectionalLinks(gitlabPipeline);
+}
+
+operation createTrigger() : gitlab!Trigger {
+    var trigger = new gitlab!Trigger;
+    trigger.name = "Push Trigger";
+    trigger.condition = "push";
+    trigger.type = "manual";
+    return trigger;
+}
+
+operation createCloneStage(initConfigProject : InitConfig!Project, trigger : gitlab!Trigger) : gitlab!Clone {
+    var cloneStage = new gitlab!Clone;
+    cloneStage.url = initConfigProject.url;
+    cloneStage.branch = initConfigProject.branch;
+    cloneStage.order = 0;
+    cloneStage.script = "git clone " + initConfigProject.url;
+    cloneStage.trigger = trigger;  // Explicitly set the trigger
+    return cloneStage;
+}
+
+operation createBuildStage(initConfigBuild : InitConfig!Build, trigger : gitlab!Trigger) : gitlab!Build {
+    var gitlabBuild = new gitlab!Build;
+    gitlabBuild.script = initConfigBuild.cmd != null ? initConfigBuild.cmd : "build command for " + initConfigBuild.name;
+    gitlabBuild.order = 1;
+    gitlabBuild.trigger = trigger;  // Explicitly set the trigger
+    return gitlabBuild;
+}
+
+operation createTestStage(initConfigTest : InitConfig!Test, trigger : gitlab!Trigger) : gitlab!Test {
+    var gitlabTest = new gitlab!Test;
+    gitlabTest.script = initConfigTest.cmd != null ? initConfigTest.cmd : "test command for " + initConfigTest.name;
+    gitlabTest.order = 2;
+    gitlabTest.trigger = trigger;  // Explicitly set the trigger
+    return gitlabTest;
+}
+
+operation createDeployStage(initConfigDeploy : InitConfig!Deploy, trigger : gitlab!Trigger) : gitlab!Deploy {
+    var gitlabDeploy = new gitlab!Deploy;
+    gitlabDeploy.script = initConfigDeploy.cmd != null ? initConfigDeploy.cmd : "deploy command for " + initConfigDeploy.name;
+    gitlabDeploy.order = 3;
+    gitlabDeploy.trigger = trigger;  // Explicitly set the trigger
+    return gitlabDeploy;
+}
+
+
+operation updateBidirectionalLinks(pipeline : gitlab!Pipeline) {
+    // Assuming Pipeline has a stages property and Stage has a pipeline property
+    for (stage in pipeline.stages) {
+        stage.pipeline = pipeline;  // Update the reverse link
+    }
+}

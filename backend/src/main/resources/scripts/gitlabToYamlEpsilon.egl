@@ -1,0 +1,26 @@
+[% var pipelines = Pipeline.all; %] 
+[% for (pipeline in pipelines) { %]
+stages:
+  [% for (stage in pipeline.stages) { %]
+  - [%= stage.eClass.name %]
+  [% } %]
+
+[% for (stage in pipeline.stages) { %]
+[%= stage.eClass.name.toLowerCase() %]:
+  stage: [%= stage.eClass.name.toLowerCase() %]
+  script:
+    - [%= stage.script %]
+  [% if (stage.artifacts.length > 0) { %]
+  artifacts:
+    paths:
+      [% for (artifact in stage.artifacts) { %]
+      - "[%= artifact.path %][%= artifact.name %]"
+      [% } %]
+  [% } %]
+  [% if (stage.trigger != null) { %]
+  only:
+    - "[%= stage.trigger.condition %]"
+  [% } %]
+[% } %]
+
+[% } %]

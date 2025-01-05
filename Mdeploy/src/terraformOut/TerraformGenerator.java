@@ -11,23 +11,40 @@ import terraform.*;
 
 public class TerraformGenerator {
     
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         // Register Terraform package
         TerraformPackage.eINSTANCE.eClass();
         
-        // Initialize EMF
-        Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()
-            .put("terraform", new XMIResourceFactoryImpl());
+        // Initialize EMF - Register the XMI factory for both extensions
+        Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+        reg.getExtensionToFactoryMap().put("model", new XMIResourceFactoryImpl());
+        reg.getExtensionToFactoryMap().put("terraform", new XMIResourceFactoryImpl());
+        reg.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl()); // Fallback for any extension
         
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
-        Resource resource = resSet.getResource(
-            URI.createFileURI("src/terraformOut/terraform.model"), true);
+        URI modelURI = URI.createFileURI("src/terraformOut/terraform.model");
         
-        TerraformConfiguration config = (TerraformConfiguration) resource.getContents().get(0);
-        
-        // Transform
-        TerraformGenerator.transform(config, "src/terraformOut/main.tf");
+        try {
+            Resource resource = resSet.getResource(modelURI, true);
+            
+            if (resource == null) {
+                throw new RuntimeException("Failed to load resource: " + modelURI.toString());
+            }
+            
+            if (resource.getContents().isEmpty()) {
+                throw new RuntimeException("Resource is empty: " + modelURI.toString());
+            }
+            
+            TerraformConfiguration config = (TerraformConfiguration) resource.getContents().get(0);
+            
+            // Transform
+            TerraformGenerator.transform(config, "src/terraformOut/main.tf");
+            
+        } catch (Exception e) {
+            System.err.println("Error loading model: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
     
     public static void transform(TerraformConfiguration config, String outputPath) {
