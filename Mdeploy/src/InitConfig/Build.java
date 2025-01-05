@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link InitConfig.Build#getTool <em>Tool</em>}</li>
+ *   <li>{@link InitConfig.Build#getName <em>Name</em>}</li>
  *   <li>{@link InitConfig.Build#getCmd <em>Cmd</em>}</li>
  *   <li>{@link InitConfig.Build#getParams <em>Params</em>}</li>
  * </ul>
@@ -24,26 +24,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Build extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Tool</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tool</em>' attribute.
-	 * @see #setTool(String)
-	 * @see InitConfig.InitConfigPackage#getBuild_Tool()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see InitConfig.InitConfigPackage#getBuild_Name()
 	 * @model
 	 * @generated
 	 */
-	String getTool();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link InitConfig.Build#getTool <em>Tool</em>}' attribute.
+	 * Sets the value of the '{@link InitConfig.Build#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tool</em>' attribute.
-	 * @see #getTool()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setTool(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Cmd</b></em>' attribute.

@@ -7,20 +7,15 @@ import InitConfig.Deploy;
 import InitConfig.InitConfigPackage;
 import InitConfig.Project;
 import InitConfig.Test;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,9 +30,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link InitConfig.impl.ProjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link InitConfig.impl.ProjectImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link InitConfig.impl.ProjectImpl#getBranch <em>Branch</em>}</li>
- *   <li>{@link InitConfig.impl.ProjectImpl#getBuildconfigs <em>Buildconfigs</em>}</li>
+ *   <li>{@link InitConfig.impl.ProjectImpl#getBuild <em>Build</em>}</li>
  *   <li>{@link InitConfig.impl.ProjectImpl#getTests <em>Tests</em>}</li>
- *   <li>{@link InitConfig.impl.ProjectImpl#getDeployconfigs <em>Deployconfigs</em>}</li>
+ *   <li>{@link InitConfig.impl.ProjectImpl#getDeploy <em>Deploy</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,14 +99,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected String branch = BRANCH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBuildconfigs() <em>Buildconfigs</em>}' containment reference list.
+	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBuildconfigs()
+	 * @see #getBuild()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Build> buildconfigs;
+	protected EList<Build> build;
 
 	/**
 	 * The cached value of the '{@link #getTests() <em>Tests</em>}' containment reference list.
@@ -124,14 +119,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected EList<Test> tests;
 
 	/**
-	 * The cached value of the '{@link #getDeployconfigs() <em>Deployconfigs</em>}' containment reference list.
+	 * The cached value of the '{@link #getDeploy() <em>Deploy</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeployconfigs()
+	 * @see #getDeploy()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Deploy> deployconfigs;
+	protected EList<Deploy> deploy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,11 +222,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public EList<Build> getBuildconfigs() {
-		if (buildconfigs == null) {
-			buildconfigs = new EObjectContainmentEList<Build>(Build.class, this, InitConfigPackage.PROJECT__BUILDCONFIGS);
+	public EList<Build> getBuild() {
+		if (build == null) {
+			build = new EObjectContainmentEList<Build>(Build.class, this, InitConfigPackage.PROJECT__BUILD);
 		}
-		return buildconfigs;
+		return build;
 	}
 
 	/**
@@ -253,11 +248,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public EList<Deploy> getDeployconfigs() {
-		if (deployconfigs == null) {
-			deployconfigs = new EObjectContainmentEList<Deploy>(Deploy.class, this, InitConfigPackage.PROJECT__DEPLOYCONFIGS);
+	public EList<Deploy> getDeploy() {
+		if (deploy == null) {
+			deploy = new EObjectContainmentEList<Deploy>(Deploy.class, this, InitConfigPackage.PROJECT__DEPLOY);
 		}
-		return deployconfigs;
+		return deploy;
 	}
 
 	/**
@@ -268,12 +263,12 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InitConfigPackage.PROJECT__BUILDCONFIGS:
-				return ((InternalEList<?>)getBuildconfigs()).basicRemove(otherEnd, msgs);
+			case InitConfigPackage.PROJECT__BUILD:
+				return ((InternalEList<?>)getBuild()).basicRemove(otherEnd, msgs);
 			case InitConfigPackage.PROJECT__TESTS:
 				return ((InternalEList<?>)getTests()).basicRemove(otherEnd, msgs);
-			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
-				return ((InternalEList<?>)getDeployconfigs()).basicRemove(otherEnd, msgs);
+			case InitConfigPackage.PROJECT__DEPLOY:
+				return ((InternalEList<?>)getDeploy()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -292,12 +287,12 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getUrl();
 			case InitConfigPackage.PROJECT__BRANCH:
 				return getBranch();
-			case InitConfigPackage.PROJECT__BUILDCONFIGS:
-				return getBuildconfigs();
+			case InitConfigPackage.PROJECT__BUILD:
+				return getBuild();
 			case InitConfigPackage.PROJECT__TESTS:
 				return getTests();
-			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
-				return getDeployconfigs();
+			case InitConfigPackage.PROJECT__DEPLOY:
+				return getDeploy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,17 +315,17 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case InitConfigPackage.PROJECT__BRANCH:
 				setBranch((String)newValue);
 				return;
-			case InitConfigPackage.PROJECT__BUILDCONFIGS:
-				getBuildconfigs().clear();
-				getBuildconfigs().addAll((Collection<? extends Build>)newValue);
+			case InitConfigPackage.PROJECT__BUILD:
+				getBuild().clear();
+				getBuild().addAll((Collection<? extends Build>)newValue);
 				return;
 			case InitConfigPackage.PROJECT__TESTS:
 				getTests().clear();
 				getTests().addAll((Collection<? extends Test>)newValue);
 				return;
-			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
-				getDeployconfigs().clear();
-				getDeployconfigs().addAll((Collection<? extends Deploy>)newValue);
+			case InitConfigPackage.PROJECT__DEPLOY:
+				getDeploy().clear();
+				getDeploy().addAll((Collection<? extends Deploy>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,14 +348,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case InitConfigPackage.PROJECT__BRANCH:
 				setBranch(BRANCH_EDEFAULT);
 				return;
-			case InitConfigPackage.PROJECT__BUILDCONFIGS:
-				getBuildconfigs().clear();
+			case InitConfigPackage.PROJECT__BUILD:
+				getBuild().clear();
 				return;
 			case InitConfigPackage.PROJECT__TESTS:
 				getTests().clear();
 				return;
-			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
-				getDeployconfigs().clear();
+			case InitConfigPackage.PROJECT__DEPLOY:
+				getDeploy().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -380,12 +375,12 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case InitConfigPackage.PROJECT__BRANCH:
 				return BRANCH_EDEFAULT == null ? branch != null : !BRANCH_EDEFAULT.equals(branch);
-			case InitConfigPackage.PROJECT__BUILDCONFIGS:
-				return buildconfigs != null && !buildconfigs.isEmpty();
+			case InitConfigPackage.PROJECT__BUILD:
+				return build != null && !build.isEmpty();
 			case InitConfigPackage.PROJECT__TESTS:
 				return tests != null && !tests.isEmpty();
-			case InitConfigPackage.PROJECT__DEPLOYCONFIGS:
-				return deployconfigs != null && !deployconfigs.isEmpty();
+			case InitConfigPackage.PROJECT__DEPLOY:
+				return deploy != null && !deploy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
