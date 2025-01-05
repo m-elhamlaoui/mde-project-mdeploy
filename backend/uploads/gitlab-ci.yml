@@ -1,0 +1,36 @@
+stages:
+- clone
+- build
+- test
+- test
+- deploy
+clone:
+  stage: clone
+  only:
+  - push
+  variables:
+    GIT_URL: https://example.com
+    CREDENTIAL_ID: null
+  script:
+  - git clone https://example.com
+  - git checkout main
+build:
+  stage: build
+  only:
+  - push
+  script:
+  - mvn clean install
+test:
+  stage: test
+  only:
+  - push
+  variables:
+    TEST_CLASSES: Example.java
+  script:
+  - mvn verify
+deploy:
+  stage: deploy
+  only:
+  - push
+  script:
+  - docker-compose up
