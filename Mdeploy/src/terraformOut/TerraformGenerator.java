@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import platform.resource.Mdeploy.model.terraform.*;
+import terraform.*;
 
 public class TerraformGenerator {
     
@@ -22,7 +22,7 @@ public class TerraformGenerator {
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
         Resource resource = resSet.getResource(
-            URI.createFileURI("src/m2mTransformation/terraform.model"), true);
+            URI.createFileURI("src/terraformOut/terraform.model"), true);
         
         TerraformConfiguration config = (TerraformConfiguration) resource.getContents().get(0);
         
