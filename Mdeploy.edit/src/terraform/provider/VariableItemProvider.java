@@ -1,6 +1,6 @@
 /**
  */
-package terraform.provider;
+package com.example.mde.model.terraform.provider;
 
 
 import java.util.Collection;
@@ -22,8 +22,8 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import terraform.TerraformPackage;
-import terraform.Variable;
+import com.example.mde.model.terraform.TerraformPackage;
+import com.example.mde.model.terraform.Variable;
 
 /**
  * This is the item provider adapter for a {@link terraform.Variable} object.

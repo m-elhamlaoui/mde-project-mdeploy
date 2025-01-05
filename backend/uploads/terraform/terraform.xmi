@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<terraform:TerraformConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:terraform="https://terraform.ma">
+  <resources name="my_instance" type="aws_instance">
+    <attributes key="ami" value="ami-123456"/>
+    <attributes key="instance_type" value="t2.micro"/>
+  </resources>
+  <variables name="instance_count" type="number"/>
+  <providers name="aws" version="3.0">
+    <attributes key="region" value="us-east-1"/>
+  </providers>
+  <outputs name="instance_ip" value="aws_instance.my_instance.public_ip"/>
+</terraform:TerraformConfiguration>

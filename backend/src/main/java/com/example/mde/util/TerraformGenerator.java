@@ -1,4 +1,4 @@
-package terraformOut;
+package com.example.mde.util;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,8 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import terraform.*;
+import com.example.mde.model.terraform.*;
 
 public class TerraformGenerator {
     
@@ -24,7 +23,7 @@ public class TerraformGenerator {
         
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
-        URI modelURI = URI.createFileURI("src/terraformIn/terraform.xmi");
+        URI modelURI = URI.createFileURI("uploads/terraform/terraform.xmi");
         
         try {
             Resource resource = resSet.getResource(modelURI, true);
@@ -40,7 +39,7 @@ public class TerraformGenerator {
             TerraformConfiguration config = (TerraformConfiguration) resource.getContents().get(0);
             
             // Transform
-            TerraformGenerator.transform(config, "src/terraformOut/main.tf");
+            TerraformGenerator.transform(config, "uploads/terraform/main.tf");
             
         } catch (Exception e) {
             System.err.println("Error loading model: " + e.getMessage());

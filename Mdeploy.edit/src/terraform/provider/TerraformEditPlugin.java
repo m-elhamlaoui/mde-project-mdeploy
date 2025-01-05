@@ -1,6 +1,6 @@
 /**
  */
-package terraform.provider;
+package com.example.mde.model.terraform.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 

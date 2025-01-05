@@ -29,25 +29,25 @@ public class GitlabToYaml {
     public static void main(String[] args) {
         // Register GitLab package
         GitlabPackage.eINSTANCE.eClass();
-        
+
         // Initialize EMF
         Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()
             .put("xmi", new XMIResourceFactoryImpl());
-        
+
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
         Resource resource = resSet.getResource(
             URI.createFileURI("uploads/gitlab.xmi"), true);
-        
+
         Pipeline pipeline = (Pipeline) resource.getContents().get(0);
-        
+
         // Transform
         GitlabToYaml.transform(pipeline, "uploads/gitlab-ci.yml");
     }
-    
+
     public static void transform(Pipeline pipeline, String outputPath) {
         Map<String, Object> yamlMap = new LinkedHashMap<>();
-        
+
         // Add stages
         List<String> stageNames = new ArrayList<>();
         List<Stage> stages = new ArrayList<>(pipeline.getStages());
@@ -56,23 +56,21 @@ public class GitlabToYaml {
             stageNames.add(getStageType(stage).toLowerCase());
         }
         yamlMap.put("stages", stageNames);
-        
+
         // Process each stage
         for (Stage stage : stages) {
             String stageKey = getStageType(stage).toLowerCase();
             Map<String, Object> stageMap = new LinkedHashMap<>();
-            
+
             stageMap.put("stage", stageKey);
             List<String> scripts = new ArrayList<>();
             scripts.add(stage.getScript());
-            
+
             // Add triggers if present in the stage
             if (stage.getTrigger() != null) {
-                Map<String, Object> triggerMap = new LinkedHashMap<>();
-                triggerMap.put("trigger", Collections.singletonList(stage.getTrigger().getCondition()));
                 stageMap.put("only", Collections.singletonList(stage.getTrigger().getCondition()));
             }
-            
+
             // Stage-specific logic
             if (stage instanceof Clone) {
                 Clone cloneStage = (Clone) stage;
@@ -87,12 +85,12 @@ public class GitlabToYaml {
                 vars.put("TEST_CLASSES", testStage.getClassesToTest());
                 stageMap.put("variables", vars);
             }
-            
+
             stageMap.put("script", scripts);
-            
+
             // Artifacts
             if (!stage.getArtifacts().isEmpty()) {
-                Map<String, List<String>> artifactMap = new LinkedHashMap<>();
+                Map<String, Object> artifactMap = new LinkedHashMap<>();
                 List<String> paths = new ArrayList<>();
                 for (Artifact artifact : stage.getArtifacts()) {
                     paths.add(artifact.getPath() + artifact.getName());
@@ -100,27 +98,29 @@ public class GitlabToYaml {
                 artifactMap.put("paths", paths);
                 stageMap.put("artifacts", artifactMap);
             }
-            
+
             yamlMap.put(stageKey, stageMap);
         }
-        
-        // Generate YAML
+
+        // Generate YAML with proper indentation
         try {
             DumperOptions options = new DumperOptions();
             options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
             options.setPrettyFlow(true);
-            
+            options.setIndent(2); // Set indentation level to 2 spaces
+            options.setIndicatorIndent(1); // Ensure indicatorIndent < indent
+
             Yaml yaml = new Yaml(options);
             FileWriter writer = new FileWriter(outputPath);
             yaml.dump(yamlMap, writer);
             writer.close();
-            
+
             System.out.println("YAML file generated: " + outputPath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     private static String getStageType(Stage stage) {
         if (stage instanceof Clone) return "Clone";
         if (stage instanceof Build) return "Build";

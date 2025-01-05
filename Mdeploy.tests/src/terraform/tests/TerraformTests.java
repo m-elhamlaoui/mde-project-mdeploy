@@ -1,6 +1,6 @@
 /**
  */
-package terraform.tests;
+package com.example.mde.model.terraform.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;

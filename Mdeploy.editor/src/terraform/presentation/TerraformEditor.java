@@ -1,6 +1,6 @@
 /**
  */
-package terraform.presentation;
+package com.example.mde.model.terraform.presentation;
 
 
 import java.io.IOException;
@@ -155,7 +155,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import terraform.provider.TerraformItemProviderAdapterFactory;
+import com.example.mde.model.terraform.provider.TerraformItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 

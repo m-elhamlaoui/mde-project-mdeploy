@@ -3,27 +3,27 @@ package com.example.mde.controller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.example.mde.service.ProjectService;
+import com.example.mde.service.TerraformService;
 
 @RestController
-@RequestMapping("/api/project")
-public class ProjectController {
+@CrossOrigin(origins = "http://localhost:3000/")
+@RequestMapping("/api/terraform")
+public class TerraformController {
 
-	private final ProjectService projectService;
+	private final TerraformService terraformService;
 
     @Autowired
-    public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
+    public TerraformController(TerraformService terrraformService) {
+        this.terraformService = terrraformService;
     }
 
  // Endpoint to receive and store the JSON file
@@ -31,29 +31,29 @@ public class ProjectController {
     public ResponseEntity<?> uploadJsonFile(@RequestParam("file") MultipartFile file) {
         try {
             // Define the path where the file will be saved
-        	String uploadDir = System.getProperty("user.dir") + "/uploads";
+        	String uploadDir = System.getProperty("user.dir") + "/uploads/terraform";
             File directory = new File(uploadDir);
             if (!directory.exists()) {
                 directory.mkdirs(); // Create directory if it does not exist
             }
 
             // Create the file on the server
-            File jsonFile = new File(uploadDir + File.separator + "project.json");
+            File jsonFile = new File(uploadDir + File.separator + "terraform-spec.json");
             file.transferTo(jsonFile);
 
             // Call the service to execute the transformation
-            String yamlPath = projectService.executeTransformation(jsonFile.getAbsolutePath());
+            String terraPath = terraformService.executeTransformation(jsonFile.getAbsolutePath());
 
-            if (yamlPath != null) {
-                // Read the generated YAML file
-                File yamlFile = new File(yamlPath);
-                if (yamlFile.exists()) {
+            if (terraPath != null) {
+                // Read the generated Terraform file
+                File terraFile = new File(terraPath);
+                if (terraFile.exists()) {
                     return ResponseEntity.ok()
-                            .header("Content-Disposition", "attachment; filename=gitlab-ci.yml")
-                            .body(Files.readAllBytes(yamlFile.toPath()));
+                            .header("Content-Disposition", "attachment; filename=main.tf")
+                            .body(Files.readAllBytes(terraFile.toPath()));
                 } else {
                     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                            .body("YAML file not generated.");
+                            .body("Terraform file not generated.");
                 }
             } else {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
