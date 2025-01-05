@@ -3,27 +3,23 @@
 stages:
   [% for (stage in pipeline.stages) { %]
   - [%= stage.eClass.name %]
-  [% } %] 
+  [% } %]
 
 [% for (stage in pipeline.stages) { %]
-  [%= stage.eClass.name.toLowerCase() %]:
+[%= stage.eClass.name.toLowerCase() %]:
   stage: [%= stage.eClass.name.toLowerCase() %]
   script:
     - [%= stage.script %]
   [% if (stage.artifacts.length > 0) { %]
   artifacts:
-    [% for (artifact in stage.artifacts) { %]
-    - name: "[%= artifact.name %]"
-      path: "[%= artifact.path %]"
-    [% } %]
+    paths:
+      [% for (artifact in stage.artifacts) { %]
+      - "[%= artifact.path %][%= artifact.name %]"
+      [% } %]
   [% } %]
-[% } %]
-
-[% if (pipeline.triggers.size() > 0) { %]
-triggers:
-  [% for (trigger in pipeline.triggers) { %]
-    - name: "[%= trigger.name %]"
-      condition: "[%= trigger.condition %]"
+  [% if (stage.trigger != null) { %]
+  only:
+    - "[%= stage.trigger.condition %]"
   [% } %]
 [% } %]
 

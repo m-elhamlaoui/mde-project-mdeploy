@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link gitlab.Pipeline#getName <em>Name</em>}</li>
  *   <li>{@link gitlab.Pipeline#getStages <em>Stages</em>}</li>
- *   <li>{@link gitlab.Pipeline#getTriggers <em>Triggers</em>}</li>
  * </ul>
  *
  * @see gitlab.GitlabPackage#getPipeline()
@@ -58,17 +57,5 @@ public interface Pipeline extends EObject {
 	 * @generated
 	 */
 	EList<Stage> getStages();
-
-	/**
-	 * Returns the value of the '<em><b>Triggers</b></em>' containment reference list.
-	 * The list contents are of type {@link gitlab.Trigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Triggers</em>' containment reference list.
-	 * @see gitlab.GitlabPackage#getPipeline_Triggers()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Trigger> getTriggers();
 
 } // Pipeline

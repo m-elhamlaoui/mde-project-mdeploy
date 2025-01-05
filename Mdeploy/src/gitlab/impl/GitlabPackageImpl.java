@@ -179,16 +179,6 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPipeline_Triggers() {
-		return (EReference)pipelineEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getStage() {
 		return stageEClass;
 	}
@@ -199,7 +189,7 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStage_Script() {
+	public EAttribute getStage_Name() {
 		return (EAttribute)stageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -209,7 +199,7 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getStage_Order() {
+	public EAttribute getStage_Script() {
 		return (EAttribute)stageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -219,8 +209,18 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getStage_Order() {
+		return (EAttribute)stageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getStage_Pipeline() {
-		return (EReference)stageEClass.getEStructuralFeatures().get(2);
+		return (EReference)stageEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -230,7 +230,17 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 */
 	@Override
 	public EReference getStage_Artifacts() {
-		return (EReference)stageEClass.getEStructuralFeatures().get(3);
+		return (EReference)stageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStage_Trigger() {
+		return (EReference)stageEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -369,18 +379,8 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTrigger_Pipeline() {
-		return (EReference)triggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getTrigger_Name() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -390,6 +390,16 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 	 */
 	@Override
 	public EAttribute getTrigger_Condition() {
+		return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTrigger_Type() {
 		return (EAttribute)triggerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -425,13 +435,14 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 		pipelineEClass = createEClass(PIPELINE);
 		createEAttribute(pipelineEClass, PIPELINE__NAME);
 		createEReference(pipelineEClass, PIPELINE__STAGES);
-		createEReference(pipelineEClass, PIPELINE__TRIGGERS);
 
 		stageEClass = createEClass(STAGE);
+		createEAttribute(stageEClass, STAGE__NAME);
 		createEAttribute(stageEClass, STAGE__SCRIPT);
 		createEAttribute(stageEClass, STAGE__ORDER);
 		createEReference(stageEClass, STAGE__PIPELINE);
 		createEReference(stageEClass, STAGE__ARTIFACTS);
+		createEReference(stageEClass, STAGE__TRIGGER);
 
 		cloneEClass = createEClass(CLONE);
 		createEAttribute(cloneEClass, CLONE__URL);
@@ -451,9 +462,9 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 		createEReference(artifactEClass, ARTIFACT__STAGE);
 
 		triggerEClass = createEClass(TRIGGER);
-		createEReference(triggerEClass, TRIGGER__PIPELINE);
 		createEAttribute(triggerEClass, TRIGGER__NAME);
 		createEAttribute(triggerEClass, TRIGGER__CONDITION);
+		createEAttribute(triggerEClass, TRIGGER__TYPE);
 	}
 
 	/**
@@ -493,13 +504,14 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 		initEClass(pipelineEClass, Pipeline.class, "Pipeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPipeline_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pipeline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPipeline_Stages(), this.getStage(), null, "stages", null, 1, -1, Pipeline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPipeline_Triggers(), this.getTrigger(), null, "triggers", null, 1, -1, Pipeline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stageEClass, Stage.class, "Stage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStage_Script(), ecorePackage.getEString(), "script", null, 0, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStage_Order(), ecorePackage.getEInt(), "order", null, 0, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStage_Pipeline(), this.getPipeline(), null, "pipeline", null, 1, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStage_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStage_Trigger(), this.getTrigger(), null, "trigger", null, 0, 1, Stage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloneEClass, Clone.class, "Clone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClone_Url(), ecorePackage.getEString(), "url", null, 0, 1, Clone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -519,9 +531,9 @@ public class GitlabPackageImpl extends EPackageImpl implements GitlabPackage {
 		initEReference(getArtifact_Stage(), this.getStage(), null, "stage", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrigger_Pipeline(), this.getPipeline(), null, "pipeline", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Name(), ecorePackage.getEString(), "name", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrigger_Type(), ecorePackage.getEString(), "type", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

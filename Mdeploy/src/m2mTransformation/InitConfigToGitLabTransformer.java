@@ -12,7 +12,7 @@ import gitlab.*;
 public class InitConfigToGitLabTransformer {
 
     public static void main(String[] args) {
-    	// Register InitConfig and GitLab packages
+        // Register InitConfig and GitLab packages
         InitConfigPackage.eINSTANCE.eClass();
         GitlabPackage.eINSTANCE.eClass();
         
@@ -29,51 +29,23 @@ public class InitConfigToGitLabTransformer {
             GitlabFactory gitlabFactory = GitlabFactory.eINSTANCE;
             Pipeline gitlabPipeline = gitlabFactory.createPipeline();
             gitlabPipeline.setName(initConfigProject.getName());
-            
-            // Create a new Trigger for a "push" event
-            Trigger gitlabTrigger = gitlabFactory.createTrigger();
-            // Set the trigger properties
-            gitlabTrigger.setName("Push Trigger");  // You can dynamically set the name if needed
-            gitlabTrigger.setCondition("push");  // Set the trigger condition to "push"
-            gitlabTrigger.setPipeline(gitlabPipeline);
-            // Add the Trigger to the pipeline
-            gitlabPipeline.getTriggers().add(gitlabTrigger);
 
-            // Create and map the Clone stage
-            Clone gitlabClone = gitlabFactory.createClone();
-            gitlabClone.setUrl(initConfigProject.getUrl()); // Map Project URL to Clone URL
-            gitlabClone.setBranch(initConfigProject.getBranch()); // Map Project Branch to Clone Branch
-            gitlabClone.setOrder(0); 
-            gitlabClone.setPipeline(gitlabPipeline);
-            gitlabClone.setScript("git clone " + initConfigProject.getUrl());
-            gitlabPipeline.getStages().add(gitlabClone);
-            
-            // Transform BuildConfigs to Build stages
-            for (InitConfig.Build initConfigBuild : initConfigProject.getBuildconfigs()) {
-                gitlab.Build gitlabBuild = gitlabFactory.createBuild();
-                gitlabBuild.setScript(initConfigBuild.getCmd());
-                gitlabBuild.setOrder(1);
-                gitlabBuild.setPipeline(gitlabPipeline);
-                gitlabPipeline.getStages().add(gitlabBuild);
+            // Create and map the Clone stage (generalized)
+            addStageToPipeline(gitlabFactory, gitlabPipeline, "Clone", initConfigProject.getUrl(), 0, "git clone " + initConfigProject.getUrl(), "Clone", initConfigProject.getBranch());
+
+            // Transform BuildConfigs to Build stages (generalized)
+            for (InitConfig.Build initConfigBuild : initConfigProject.getBuild()) {
+                addStageToPipeline(gitlabFactory, gitlabPipeline, initConfigBuild.getName(), initConfigBuild.getCmd(), 1, initConfigBuild.getCmd(), "Build", initConfigProject.getBranch());
             }
 
-            // Transform Tests to Test stages
+            // Transform Tests to Test stages (generalized)
             for (InitConfig.Test initConfigTest : initConfigProject.getTests()) {
-                gitlab.Test gitlabTest = gitlabFactory.createTest();
-                gitlabTest.setScript(initConfigTest.getCmd());
-                gitlabTest.setOrder(2);
-                gitlabTest.setPipeline(gitlabPipeline);
-                gitlabTest.setClassesToTest(initConfigTest.getName()); // Map appropriately
-                gitlabPipeline.getStages().add(gitlabTest);
+                addStageToPipeline(gitlabFactory, gitlabPipeline, initConfigTest.getName(), initConfigTest.getCmd(), 2, initConfigTest.getCmd(), "Test", initConfigProject.getBranch());
             }
 
-            // Transform DeployConfigs to Deploy stages
-            for (InitConfig.Deploy initConfigDeploy : initConfigProject.getDeployconfigs()) {
-                gitlab.Deploy gitlabDeploy = gitlabFactory.createDeploy();
-                gitlabDeploy.setScript(initConfigDeploy.getCmd());
-                gitlabDeploy.setOrder(3); 
-                gitlabDeploy.setPipeline(gitlabPipeline);
-                gitlabPipeline.getStages().add(gitlabDeploy);
+            // Transform DeployConfigs to Deploy stages (generalized)
+            for (InitConfig.Deploy initConfigDeploy : initConfigProject.getDeploy()) {
+                addStageToPipeline(gitlabFactory, gitlabPipeline, initConfigDeploy.getName(), initConfigDeploy.getCmd(), 3, initConfigDeploy.getCmd(), "Deploy", initConfigProject.getBranch());
             }
 
             // Save the transformed GitLab model
@@ -87,5 +59,45 @@ public class InitConfigToGitLabTransformer {
             e.printStackTrace();
         }
     }
-}
 
+    // Generalized method for adding stages to the pipeline
+    private static void addStageToPipeline(GitlabFactory gitlabFactory, Pipeline gitlabPipeline, String name, String url, int order, String script, String stageType, String branch) {
+        Stage gitlabStage;
+        switch (stageType) {
+            case "Clone":
+                gitlabStage = gitlabFactory.createClone();
+                ((Clone) gitlabStage).setUrl(url);  // Set the URL for Clone
+                ((Clone) gitlabStage).setBranch(branch);
+                ((gitlab.Clone) gitlabStage).setScript("git clone " + url);
+                break;
+            case "Build":
+                gitlabStage = gitlabFactory.createBuild();
+                ((gitlab.Build) gitlabStage).setScript(script);
+                break;
+            case "Test":
+                gitlabStage = gitlabFactory.createTest();
+                ((gitlab.Test) gitlabStage).setScript(script);
+                ((gitlab.Test) gitlabStage).setClassesToTest("Example.java");  // Map appropriately
+                break;
+            case "Deploy":
+                gitlabStage = gitlabFactory.createDeploy();
+                ((gitlab.Deploy) gitlabStage).setScript(script);
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown stage type: " + stageType);
+        }
+
+        // Create a new Trigger for a "push" event
+        Trigger gitlabTrigger = gitlabFactory.createTrigger();
+        gitlabTrigger.setName("Push Trigger");  // You can dynamically set the name if needed
+        gitlabTrigger.setCondition("push");  // Set the trigger condition to "push"
+        gitlabTrigger.setType("manual");
+        
+        // Set the common properties
+        gitlabStage.setName(name);
+        gitlabStage.setOrder(order);
+        gitlabStage.setPipeline(gitlabPipeline);
+        gitlabStage.setTrigger(gitlabTrigger);
+        gitlabPipeline.getStages().add(gitlabStage);
+    }
+}

@@ -2,9 +2,9 @@
     "name": "My Project",
     "url": "https://example.com",
     "branch": "main",
-    "buildconfigs": [
+    "build": [
       {
-        "tool": "Maven",
+        "name": "Maven",
         "cmd": "mvn clean install",
         "params": "-DskipTests"
       }
@@ -23,8 +23,9 @@
         "status": 2
       }
     ],
-    "deployconfigs": [
+    "deploy": [
       {
+        "name": "Deploy",
         "cmd": "docker-compose up"
       }
     ]

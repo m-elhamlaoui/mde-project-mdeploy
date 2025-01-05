@@ -1,30 +1,31 @@
  
-
 stages:
   - Clone
   - Build
   - Test
+  - Test
   - Deploy
- 
 
-  clone:
+clone:
   stage: clone
   script:
     - git clone https://example.com
-  build:
+build:
   stage: build
   script:
-    - build command for My Project
-  test:
+    - mvn clean install
+test:
   stage: test
   script:
-    - test command for My Project
-  deploy:
+    - mvn test
+test:
+  stage: test
+  script:
+    - mvn verify
+deploy:
   stage: deploy
   script:
-    - deploy command for My Project
-
-triggers:
-    - name: "Push Trigger"
-      condition: "push"
+    - docker-compose up
+  only:
+    - "push"
 

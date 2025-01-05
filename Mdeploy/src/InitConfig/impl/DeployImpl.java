@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link InitConfig.impl.DeployImpl#getCmd <em>Cmd</em>}</li>
+ *   <li>{@link InitConfig.impl.DeployImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +44,26 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 	 * @ordered
 	 */
 	protected String cmd = CMD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,10 +113,35 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InitConfigPackage.DEPLOY__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InitConfigPackage.DEPLOY__CMD:
 				return getCmd();
+			case InitConfigPackage.DEPLOY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +156,9 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 		switch (featureID) {
 			case InitConfigPackage.DEPLOY__CMD:
 				setCmd((String)newValue);
+				return;
+			case InitConfigPackage.DEPLOY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,6 +175,9 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 			case InitConfigPackage.DEPLOY__CMD:
 				setCmd(CMD_EDEFAULT);
 				return;
+			case InitConfigPackage.DEPLOY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +192,8 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 		switch (featureID) {
 			case InitConfigPackage.DEPLOY__CMD:
 				return CMD_EDEFAULT == null ? cmd != null : !CMD_EDEFAULT.equals(cmd);
+			case InitConfigPackage.DEPLOY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,6 +210,8 @@ public class DeployImpl extends MinimalEObjectImpl.Container implements Deploy {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (cmd: ");
 		result.append(cmd);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

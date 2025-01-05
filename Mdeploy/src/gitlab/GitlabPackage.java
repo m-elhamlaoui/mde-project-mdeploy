@@ -85,22 +85,13 @@ public interface GitlabPackage extends EPackage {
 	int PIPELINE__STAGES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Triggers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIPELINE__TRIGGERS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Pipeline</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIPELINE_FEATURE_COUNT = 3;
+	int PIPELINE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Pipeline</em>' class.
@@ -122,13 +113,22 @@ public interface GitlabPackage extends EPackage {
 	int STAGE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAGE__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE__SCRIPT = 0;
+	int STAGE__SCRIPT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -137,7 +137,7 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE__ORDER = 1;
+	int STAGE__ORDER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Pipeline</b></em>' reference.
@@ -146,7 +146,7 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE__PIPELINE = 2;
+	int STAGE__PIPELINE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
@@ -155,7 +155,16 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE__ARTIFACTS = 3;
+	int STAGE__ARTIFACTS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAGE__TRIGGER = 5;
 
 	/**
 	 * The number of structural features of the '<em>Stage</em>' class.
@@ -164,7 +173,7 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAGE_FEATURE_COUNT = 4;
+	int STAGE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Stage</em>' class.
@@ -184,6 +193,15 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 */
 	int CLONE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLONE__NAME = STAGE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -220,6 +238,15 @@ public interface GitlabPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLONE__ARTIFACTS = STAGE__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLONE__TRIGGER = STAGE__TRIGGER;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -277,6 +304,15 @@ public interface GitlabPackage extends EPackage {
 	int TEST = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__NAME = STAGE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,6 +347,15 @@ public interface GitlabPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST__ARTIFACTS = STAGE__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__TRIGGER = STAGE__TRIGGER;
 
 	/**
 	 * The feature id for the '<em><b>Classes To Test</b></em>' attribute.
@@ -350,6 +395,15 @@ public interface GitlabPackage extends EPackage {
 	int BUILD = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD__NAME = STAGE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +440,15 @@ public interface GitlabPackage extends EPackage {
 	int BUILD__ARTIFACTS = STAGE__ARTIFACTS;
 
 	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD__TRIGGER = STAGE__TRIGGER;
+
+	/**
 	 * The number of structural features of the '<em>Build</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +475,15 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 */
 	int DEPLOY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOY__NAME = STAGE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -448,6 +520,15 @@ public interface GitlabPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEPLOY__ARTIFACTS = STAGE__ARTIFACTS;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOY__TRIGGER = STAGE__TRIGGER;
 
 	/**
 	 * The number of structural features of the '<em>Deploy</em>' class.
@@ -533,22 +614,13 @@ public interface GitlabPackage extends EPackage {
 	int TRIGGER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Pipeline</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__PIPELINE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__NAME = 1;
+	int TRIGGER__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' attribute.
@@ -557,7 +629,16 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__CONDITION = 2;
+	int TRIGGER__CONDITION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__TYPE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Trigger</em>' class.
@@ -611,17 +692,6 @@ public interface GitlabPackage extends EPackage {
 	EReference getPipeline_Stages();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link gitlab.Pipeline#getTriggers <em>Triggers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Triggers</em>'.
-	 * @see gitlab.Pipeline#getTriggers()
-	 * @see #getPipeline()
-	 * @generated
-	 */
-	EReference getPipeline_Triggers();
-
-	/**
 	 * Returns the meta object for class '{@link gitlab.Stage <em>Stage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +700,17 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gitlab.Stage#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see gitlab.Stage#getName()
+	 * @see #getStage()
+	 * @generated
+	 */
+	EAttribute getStage_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link gitlab.Stage#getScript <em>Script</em>}'.
@@ -674,6 +755,17 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStage_Artifacts();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gitlab.Stage#getTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Trigger</em>'.
+	 * @see gitlab.Stage#getTrigger()
+	 * @see #getStage()
+	 * @generated
+	 */
+	EReference getStage_Trigger();
 
 	/**
 	 * Returns the meta object for class '{@link gitlab.Clone <em>Clone</em>}'.
@@ -813,17 +905,6 @@ public interface GitlabPackage extends EPackage {
 	EClass getTrigger();
 
 	/**
-	 * Returns the meta object for the reference '{@link gitlab.Trigger#getPipeline <em>Pipeline</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pipeline</em>'.
-	 * @see gitlab.Trigger#getPipeline()
-	 * @see #getTrigger()
-	 * @generated
-	 */
-	EReference getTrigger_Pipeline();
-
-	/**
 	 * Returns the meta object for the attribute '{@link gitlab.Trigger#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -844,6 +925,17 @@ public interface GitlabPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTrigger_Condition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gitlab.Trigger#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see gitlab.Trigger#getType()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EAttribute getTrigger_Type();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -895,14 +987,6 @@ public interface GitlabPackage extends EPackage {
 		EReference PIPELINE__STAGES = eINSTANCE.getPipeline_Stages();
 
 		/**
-		 * The meta object literal for the '<em><b>Triggers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PIPELINE__TRIGGERS = eINSTANCE.getPipeline_Triggers();
-
-		/**
 		 * The meta object literal for the '{@link gitlab.impl.StageImpl <em>Stage</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -911,6 +995,14 @@ public interface GitlabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STAGE = eINSTANCE.getStage();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STAGE__NAME = eINSTANCE.getStage_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
@@ -943,6 +1035,14 @@ public interface GitlabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STAGE__ARTIFACTS = eINSTANCE.getStage_Artifacts();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STAGE__TRIGGER = eINSTANCE.getStage_Trigger();
 
 		/**
 		 * The meta object literal for the '{@link gitlab.impl.CloneImpl <em>Clone</em>}' class.
@@ -1061,14 +1161,6 @@ public interface GitlabPackage extends EPackage {
 		EClass TRIGGER = eINSTANCE.getTrigger();
 
 		/**
-		 * The meta object literal for the '<em><b>Pipeline</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRIGGER__PIPELINE = eINSTANCE.getTrigger_Pipeline();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1083,6 +1175,14 @@ public interface GitlabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRIGGER__CONDITION = eINSTANCE.getTrigger_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRIGGER__TYPE = eINSTANCE.getTrigger_Type();
 
 	}
 

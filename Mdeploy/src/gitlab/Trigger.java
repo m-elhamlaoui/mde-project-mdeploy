@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link gitlab.Trigger#getPipeline <em>Pipeline</em>}</li>
  *   <li>{@link gitlab.Trigger#getName <em>Name</em>}</li>
  *   <li>{@link gitlab.Trigger#getCondition <em>Condition</em>}</li>
+ *   <li>{@link gitlab.Trigger#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see gitlab.GitlabPackage#getTrigger()
@@ -23,28 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Trigger extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Pipeline</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pipeline</em>' reference.
-	 * @see #setPipeline(Pipeline)
-	 * @see gitlab.GitlabPackage#getTrigger_Pipeline()
-	 * @model
-	 * @generated
-	 */
-	Pipeline getPipeline();
-
-	/**
-	 * Sets the value of the '{@link gitlab.Trigger#getPipeline <em>Pipeline</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pipeline</em>' reference.
-	 * @see #getPipeline()
-	 * @generated
-	 */
-	void setPipeline(Pipeline value);
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,5 +66,27 @@ public interface Trigger extends EObject {
 	 * @generated
 	 */
 	void setCondition(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see #setType(String)
+	 * @see gitlab.GitlabPackage#getTrigger_Type()
+	 * @model
+	 * @generated
+	 */
+	String getType();
+
+	/**
+	 * Sets the value of the '{@link gitlab.Trigger#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(String value);
 
 } // Trigger

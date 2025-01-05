@@ -5,8 +5,6 @@ package gitlab.impl;
 import gitlab.GitlabPackage;
 import gitlab.Pipeline;
 import gitlab.Stage;
-import gitlab.Trigger;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link gitlab.impl.PipelineImpl#getName <em>Name</em>}</li>
  *   <li>{@link gitlab.impl.PipelineImpl#getStages <em>Stages</em>}</li>
- *   <li>{@link gitlab.impl.PipelineImpl#getTriggers <em>Triggers</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,16 +65,6 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 	 * @ordered
 	 */
 	protected EList<Stage> stages;
-
-	/**
-	 * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTriggers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Trigger> triggers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,25 +127,10 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 	 * @generated
 	 */
 	@Override
-	public EList<Trigger> getTriggers() {
-		if (triggers == null) {
-			triggers = new EObjectContainmentEList<Trigger>(Trigger.class, this, GitlabPackage.PIPELINE__TRIGGERS);
-		}
-		return triggers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitlabPackage.PIPELINE__STAGES:
 				return ((InternalEList<?>)getStages()).basicRemove(otherEnd, msgs);
-			case GitlabPackage.PIPELINE__TRIGGERS:
-				return ((InternalEList<?>)getTriggers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -175,8 +147,6 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 				return getName();
 			case GitlabPackage.PIPELINE__STAGES:
 				return getStages();
-			case GitlabPackage.PIPELINE__TRIGGERS:
-				return getTriggers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,10 +167,6 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 				getStages().clear();
 				getStages().addAll((Collection<? extends Stage>)newValue);
 				return;
-			case GitlabPackage.PIPELINE__TRIGGERS:
-				getTriggers().clear();
-				getTriggers().addAll((Collection<? extends Trigger>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -219,9 +185,6 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 			case GitlabPackage.PIPELINE__STAGES:
 				getStages().clear();
 				return;
-			case GitlabPackage.PIPELINE__TRIGGERS:
-				getTriggers().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,8 +201,6 @@ public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeli
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GitlabPackage.PIPELINE__STAGES:
 				return stages != null && !stages.isEmpty();
-			case GitlabPackage.PIPELINE__TRIGGERS:
-				return triggers != null && !triggers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

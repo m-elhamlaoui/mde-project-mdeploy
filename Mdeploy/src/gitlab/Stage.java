@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link gitlab.Stage#getName <em>Name</em>}</li>
  *   <li>{@link gitlab.Stage#getScript <em>Script</em>}</li>
  *   <li>{@link gitlab.Stage#getOrder <em>Order</em>}</li>
  *   <li>{@link gitlab.Stage#getPipeline <em>Pipeline</em>}</li>
  *   <li>{@link gitlab.Stage#getArtifacts <em>Artifacts</em>}</li>
+ *   <li>{@link gitlab.Stage#getTrigger <em>Trigger</em>}</li>
  * </ul>
  *
  * @see gitlab.GitlabPackage#getStage()
@@ -26,6 +28,28 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Stage extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see gitlab.GitlabPackage#getStage_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link gitlab.Stage#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Script</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,5 +127,27 @@ public interface Stage extends EObject {
 	 * @generated
 	 */
 	EList<Artifact> getArtifacts();
+
+	/**
+	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trigger</em>' containment reference.
+	 * @see #setTrigger(Trigger)
+	 * @see gitlab.GitlabPackage#getStage_Trigger()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Trigger getTrigger();
+
+	/**
+	 * Sets the value of the '{@link gitlab.Stage#getTrigger <em>Trigger</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Trigger</em>' containment reference.
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	void setTrigger(Trigger value);
 
 } // Stage

@@ -94,13 +94,13 @@ public interface InitConfigPackage extends EPackage {
 	int PROJECT__BRANCH = 2;
 
 	/**
-	 * The feature id for the '<em><b>Buildconfigs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Build</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BUILDCONFIGS = 3;
+	int PROJECT__BUILD = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
@@ -112,13 +112,13 @@ public interface InitConfigPackage extends EPackage {
 	int PROJECT__TESTS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Deployconfigs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Deploy</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__DEPLOYCONFIGS = 5;
+	int PROJECT__DEPLOY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -149,13 +149,13 @@ public interface InitConfigPackage extends EPackage {
 	int BUILD = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tool</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD__TOOL = 0;
+	int BUILD__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Cmd</b></em>' attribute.
@@ -277,13 +277,22 @@ public interface InitConfigPackage extends EPackage {
 	int DEPLOY__CMD = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOY__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Deploy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOY_FEATURE_COUNT = 1;
+	int DEPLOY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Deploy</em>' class.
@@ -339,15 +348,15 @@ public interface InitConfigPackage extends EPackage {
 	EAttribute getProject_Branch();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getBuildconfigs <em>Buildconfigs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getBuild <em>Build</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Buildconfigs</em>'.
-	 * @see InitConfig.Project#getBuildconfigs()
+	 * @return the meta object for the containment reference list '<em>Build</em>'.
+	 * @see InitConfig.Project#getBuild()
 	 * @see #getProject()
 	 * @generated
 	 */
-	EReference getProject_Buildconfigs();
+	EReference getProject_Build();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getTests <em>Tests</em>}'.
@@ -361,15 +370,15 @@ public interface InitConfigPackage extends EPackage {
 	EReference getProject_Tests();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getDeployconfigs <em>Deployconfigs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link InitConfig.Project#getDeploy <em>Deploy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Deployconfigs</em>'.
-	 * @see InitConfig.Project#getDeployconfigs()
+	 * @return the meta object for the containment reference list '<em>Deploy</em>'.
+	 * @see InitConfig.Project#getDeploy()
 	 * @see #getProject()
 	 * @generated
 	 */
-	EReference getProject_Deployconfigs();
+	EReference getProject_Deploy();
 
 	/**
 	 * Returns the meta object for class '{@link InitConfig.Build <em>Build</em>}'.
@@ -382,15 +391,15 @@ public interface InitConfigPackage extends EPackage {
 	EClass getBuild();
 
 	/**
-	 * Returns the meta object for the attribute '{@link InitConfig.Build#getTool <em>Tool</em>}'.
+	 * Returns the meta object for the attribute '{@link InitConfig.Build#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Tool</em>'.
-	 * @see InitConfig.Build#getTool()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see InitConfig.Build#getName()
 	 * @see #getBuild()
 	 * @generated
 	 */
-	EAttribute getBuild_Tool();
+	EAttribute getBuild_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link InitConfig.Build#getCmd <em>Cmd</em>}'.
@@ -490,6 +499,17 @@ public interface InitConfigPackage extends EPackage {
 	EAttribute getDeploy_Cmd();
 
 	/**
+	 * Returns the meta object for the attribute '{@link InitConfig.Deploy#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see InitConfig.Deploy#getName()
+	 * @see #getDeploy()
+	 * @generated
+	 */
+	EAttribute getDeploy_Name();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,12 +567,12 @@ public interface InitConfigPackage extends EPackage {
 		EAttribute PROJECT__BRANCH = eINSTANCE.getProject_Branch();
 
 		/**
-		 * The meta object literal for the '<em><b>Buildconfigs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Build</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__BUILDCONFIGS = eINSTANCE.getProject_Buildconfigs();
+		EReference PROJECT__BUILD = eINSTANCE.getProject_Build();
 
 		/**
 		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
@@ -563,12 +583,12 @@ public interface InitConfigPackage extends EPackage {
 		EReference PROJECT__TESTS = eINSTANCE.getProject_Tests();
 
 		/**
-		 * The meta object literal for the '<em><b>Deployconfigs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Deploy</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__DEPLOYCONFIGS = eINSTANCE.getProject_Deployconfigs();
+		EReference PROJECT__DEPLOY = eINSTANCE.getProject_Deploy();
 
 		/**
 		 * The meta object literal for the '{@link InitConfig.impl.BuildImpl <em>Build</em>}' class.
@@ -581,12 +601,12 @@ public interface InitConfigPackage extends EPackage {
 		EClass BUILD = eINSTANCE.getBuild();
 
 		/**
-		 * The meta object literal for the '<em><b>Tool</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUILD__TOOL = eINSTANCE.getBuild_Tool();
+		EAttribute BUILD__NAME = eINSTANCE.getBuild_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Cmd</b></em>' attribute feature.
@@ -663,6 +683,14 @@ public interface InitConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPLOY__CMD = eINSTANCE.getDeploy_Cmd();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOY__NAME = eINSTANCE.getDeploy_Name();
 
 	}
 

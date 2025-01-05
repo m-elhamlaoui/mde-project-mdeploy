@@ -18,10 +18,10 @@ import org.yaml.snakeyaml.Yaml;
 import gitlab.*;
 
 public class GitlabToYaml {
-	public static void main(String[] args) {
-		// Register GitLab package
+    public static void main(String[] args) {
+        // Register GitLab package
         GitlabPackage.eINSTANCE.eClass();
-		
+        
         // Initialize EMF
         Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()
             .put("model", new XMIResourceFactoryImpl());
@@ -40,29 +40,32 @@ public class GitlabToYaml {
     public static void transform(Pipeline pipeline, String outputPath) {
         Map<String, Object> yamlMap = new LinkedHashMap<>();
         
-        // Pipeline name
-        yamlMap.put("# Pipeline", pipeline.getName());
-        
-        // Triggers
-        for (Trigger trigger : pipeline.getTriggers()) {
-            Map<String, Object> triggerMap = new LinkedHashMap<>();
-            triggerMap.put("trigger", Collections.singletonList(trigger.getCondition()));
-            yamlMap.put(trigger.getName(), triggerMap);
-        }
-        
-        // Sort stages by order
+        // Add stages
+        List<String> stageNames = new ArrayList<>();
         List<Stage> stages = new ArrayList<>(pipeline.getStages());
         Collections.sort(stages, (a, b) -> Integer.compare(a.getOrder(), b.getOrder()));
-        
-        // Process stages
         for (Stage stage : stages) {
-            String stageName = getStageType(stage).toLowerCase() + "_stage";
+            stageNames.add(getStageType(stage).toLowerCase());
+        }
+        yamlMap.put("stages", stageNames);
+        
+        // Process each stage
+        for (Stage stage : stages) {
+            String stageKey = getStageType(stage).toLowerCase();
             Map<String, Object> stageMap = new LinkedHashMap<>();
             
-            stageMap.put("stage", getStageType(stage).toLowerCase());
+            stageMap.put("stage", stageKey);
             List<String> scripts = new ArrayList<>();
             scripts.add(stage.getScript());
             
+            // Add triggers if present in the stage
+            if (stage.getTrigger() != null) {
+                Map<String, Object> triggerMap = new LinkedHashMap<>();
+                triggerMap.put("trigger", Collections.singletonList(stage.getTrigger().getCondition()));
+                stageMap.put("only", Collections.singletonList(stage.getTrigger().getCondition()));
+            }
+            
+            // Stage-specific logic
             if (stage instanceof Clone) {
                 Clone cloneStage = (Clone) stage;
                 scripts.add("git checkout " + cloneStage.getBranch());
@@ -90,7 +93,7 @@ public class GitlabToYaml {
                 stageMap.put("artifacts", artifactMap);
             }
             
-            yamlMap.put(stageName, stageMap);
+            yamlMap.put(stageKey, stageMap);
         }
         
         // Generate YAML
