@@ -1,6 +1,6 @@
 /**
  */
-package com.example.mde.model.terraform.util;
+package terraform.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,7 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import com.example.mde.model.terraform.*;
+import terraform.*;
 
 /**
  * <!-- begin-user-doc -->

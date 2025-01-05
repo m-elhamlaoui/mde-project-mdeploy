@@ -1,6 +1,6 @@
 /**
  */
-package com.example.mde.model.terraform.impl;
+package terraform.impl;
 
 import java.util.Collection;
 
@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import com.example.mde.model.terraform.Output;
-import com.example.mde.model.terraform.Provider;
-import com.example.mde.model.terraform.Ressource;
-import com.example.mde.model.terraform.TerraformConfiguration;
-import com.example.mde.model.terraform.TerraformPackage;
-import com.example.mde.model.terraform.Variable;
+import terraform.Output;
+import terraform.Provider;
+import terraform.Ressource;
+import terraform.TerraformConfiguration;
+import terraform.TerraformPackage;
+import terraform.Variable;
 
 /**
  * <!-- begin-user-doc -->

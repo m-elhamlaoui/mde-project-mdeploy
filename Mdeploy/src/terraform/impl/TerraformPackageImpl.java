@@ -1,6 +1,6 @@
 /**
  */
-package com.example.mde.model.terraform.impl;
+package terraform.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -9,14 +9,14 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import com.example.mde.model.terraform.Attribute;
-import com.example.mde.model.terraform.Output;
-import com.example.mde.model.terraform.Provider;
-import com.example.mde.model.terraform.Ressource;
-import com.example.mde.model.terraform.TerraformConfiguration;
-import com.example.mde.model.terraform.TerraformFactory;
-import com.example.mde.model.terraform.TerraformPackage;
-import com.example.mde.model.terraform.Variable;
+import terraform.Attribute;
+import terraform.Output;
+import terraform.Provider;
+import terraform.Ressource;
+import terraform.TerraformConfiguration;
+import terraform.TerraformFactory;
+import terraform.TerraformPackage;
+import terraform.Variable;
 
 /**
  * <!-- begin-user-doc -->

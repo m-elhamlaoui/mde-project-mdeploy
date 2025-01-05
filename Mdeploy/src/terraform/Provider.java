@@ -1,6 +1,6 @@
 /**
  */
-package com.example.mde.model.terraform;
+package terraform;
 
 import org.eclipse.emf.common.util.EList;
 
