@@ -1,6 +1,6 @@
 /**
  */
-package terraform.presentation;
+package com.example.mde.model.terraform.presentation;
 
 
 import java.util.ArrayList;
@@ -69,9 +69,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import terraform.TerraformFactory;
-import terraform.TerraformPackage;
-import terraform.provider.TerraformEditPlugin;
+import com.example.mde.model.terraform.TerraformFactory;
+import com.example.mde.model.terraform.TerraformPackage;
+import com.example.mde.model.terraform.provider.TerraformEditPlugin;
 
 
 import org.eclipse.core.runtime.Path;
@@ -116,7 +116,7 @@ public class TerraformModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TerraformPackage terraformPackage = TerraformPackage.eINSTANCE;
+	protected Terraformpackage com.example.mde.model.terraformPackage = TerraformPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.

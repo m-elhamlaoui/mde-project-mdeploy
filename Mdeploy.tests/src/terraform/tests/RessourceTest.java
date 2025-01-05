@@ -1,13 +1,13 @@
 /**
  */
-package terraform.tests;
+package com.example.mde.model.terraform.tests;
 
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import terraform.Ressource;
-import terraform.TerraformFactory;
+import com.example.mde.model.terraform.Ressource;
+import com.example.mde.model.terraform.TerraformFactory;
 
 /**
  * <!-- begin-user-doc -->

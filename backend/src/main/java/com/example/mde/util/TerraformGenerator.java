@@ -1,4 +1,4 @@
-package com.example.mde.model.terraformOut;
+package com.example.mde.util;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class TerraformGenerator {
         
         // Load model
         ResourceSet resSet = new ResourceSetImpl();
-        URI modelURI = URI.createFileURI("src/terraformOut/terraform.model");
+        URI modelURI = URI.createFileURI("uploads/terraform/terraform.model");
         
         try {
             Resource resource = resSet.getResource(modelURI, true);
@@ -39,7 +39,7 @@ public class TerraformGenerator {
             TerraformConfiguration config = (TerraformConfiguration) resource.getContents().get(0);
             
             // Transform
-            TerraformGenerator.transform(config, "src/terraformOut/main.tf");
+            TerraformGenerator.transform(config, "uploads/terraform/main.tf");
             
         } catch (Exception e) {
             System.err.println("Error loading model: " + e.getMessage());

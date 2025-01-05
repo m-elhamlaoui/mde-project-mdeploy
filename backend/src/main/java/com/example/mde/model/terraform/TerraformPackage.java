@@ -54,7 +54,7 @@ public interface TerraformPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	TerraformPackage eINSTANCE = terraform.impl.TerraformPackageImpl.init();
+	TerraformPackage eINSTANCE = com.example.mde.model.terraform.impl.TerraformPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link terraform.impl.TerraformConfigurationImpl <em>Configuration</em>}' class.

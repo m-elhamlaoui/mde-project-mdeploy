@@ -1,6 +1,6 @@
 /**
  */
-package terraform.presentation;
+package com.example.mde.model.terraform.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;

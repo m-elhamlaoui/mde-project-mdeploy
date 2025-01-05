@@ -1,6 +1,6 @@
 /**
  */
-package terraform.tests;
+package com.example.mde.model.terraform.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import terraform.TerraformConfiguration;
-import terraform.TerraformFactory;
-import terraform.TerraformPackage;
+import com.example.mde.model.terraform.TerraformConfiguration;
+import com.example.mde.model.terraform.TerraformFactory;
+import com.example.mde.model.terraform.TerraformPackage;
 
 /**
  * <!-- begin-user-doc -->

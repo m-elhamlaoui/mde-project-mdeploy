@@ -1,6 +1,6 @@
 /**
  */
-package terraform.provider;
+package com.example.mde.model.terraform.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import terraform.util.TerraformAdapterFactory;
+import com.example.mde.model.terraform.util.TerraformAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

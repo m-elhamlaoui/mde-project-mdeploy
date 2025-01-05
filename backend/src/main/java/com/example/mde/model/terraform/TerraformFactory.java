@@ -19,7 +19,7 @@ public interface TerraformFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	TerraformFactory eINSTANCE = terraform.impl.TerraformFactoryImpl.init();
+	TerraformFactory eINSTANCE = com.example.mde.model.terraform.impl.TerraformFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.
