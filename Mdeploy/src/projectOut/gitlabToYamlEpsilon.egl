@@ -1,0 +1,22 @@
+[% var pipelines = Pipeline.all; %] 
+
+[% for (pipeline in pipelines) { %]
+Pipeline:
+  name: "[%= pipeline.name %]"
+  stages:
+  [% for (stage in pipeline.stages) { %]
+    - stageType: "[%= stage.eClass.name %]"
+      script: "[%= stage.script %]"
+      order: [%= stage.order %]
+      artifacts:
+      [% for (artifact in stage.artifacts) { %]
+        - name: "[%= artifact.name %]"
+          path: "[%= artifact.path %]"
+      [% } %]
+  [% } %]
+  triggers:
+  [% for (trigger in pipeline.triggers) { %]
+    - name: "[%= trigger.name %]"
+      condition: "[%= trigger.condition %]"
+  [% } %]
+[% } %]
