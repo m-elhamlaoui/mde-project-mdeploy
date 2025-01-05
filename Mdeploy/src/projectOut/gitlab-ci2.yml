@@ -1,24 +1,30 @@
  
 
-Pipeline:
-  name: "My Project"
-  stages:
-    - stageType: "Clone"
-      script: "git clone https://example.com"
-      order: 0
-      artifacts:
-    - stageType: "Build"
-      script: "build command for My Project"
-      order: 1
-      artifacts:
-    - stageType: "Test"
-      script: "test command for My Project"
-      order: 2
-      artifacts:
-    - stageType: "Deploy"
-      script: "deploy command for My Project"
-      order: 3
-      artifacts:
-  triggers:
+stages:
+  - Clone
+  - Build
+  - Test
+  - Deploy
+ 
+
+  clone:
+  stage: clone
+  script:
+    - git clone https://example.com
+  build:
+  stage: build
+  script:
+    - build command for My Project
+  test:
+  stage: test
+  script:
+    - test command for My Project
+  deploy:
+  stage: deploy
+  script:
+    - deploy command for My Project
+
+triggers:
     - name: "Push Trigger"
       condition: "push"
+
