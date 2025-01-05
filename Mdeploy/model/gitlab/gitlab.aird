@@ -4,7 +4,7 @@
     <semanticResources>gitlab.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_WvjnEMd0Ee-ao_RnhSJrXw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XZfU4Md0Ee-ao_RnhSJrXw" name="gitlab class diagram" repPath="#_XZWK8Md0Ee-ao_RnhSJrXw" changeId="46194522-b458-444e-89d7-369a4e088474">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XZfU4Md0Ee-ao_RnhSJrXw" name="gitlab class diagram" repPath="#_XZWK8Md0Ee-ao_RnhSJrXw" changeId="e81faa39-9fbc-40ef-b5c0-6d8bfd7c3c10">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="gitlab.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -631,6 +631,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_We0gcMj1Ee-NmYHOoB6YxA" description="_rTuOsMd0Ee-ao_RnhSJrXw" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_We0gcsj1Ee-NmYHOoB6YxA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_We0gccj1Ee-NmYHOoB6YxA" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
