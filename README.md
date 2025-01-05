@@ -8,6 +8,7 @@
     - [Gitlab metamodel](#gitlab-metamodel)
 - [T2M transformation: Converting JSON data into initConfig model](#t2m-transformation-converting-json-data-into-initconfig-model)
 - [M2M transformation: From initConfig to Gitlab](#m2m-transformation-from-initconfig-to-gitlab)
+- [M2T transformation: From Gitlab to Yaml](#m2t-transformation-from-gitlab-to-yaml)
 - [Contributors](#contributors)
 
 ## Requirements
@@ -40,6 +41,8 @@ The script `JsontToModel.java` parses JSON data and converts it to an initConfig
 ## M2M transformation: From initConfig to Gitlab
 
 Eclipse Epsilon ETL Transformation rules to transform from initial configuration to gitlab model.
+
+## M2T transformation: From Gitlab to Yaml
 
 ## Contributors
 - [@Cristal32](https://github.com/Cristal32)
