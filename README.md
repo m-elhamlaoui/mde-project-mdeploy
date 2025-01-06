@@ -23,7 +23,7 @@
 ## Requirements
 
 - Eclipse Modeling Tools 2022 [Find here](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-modeling-tools)
-- jackson-annotations, jackson-core, jackson-databind and eclipse.emf.ecore.xmi jar libraries
+- Eclipse Epsilon
 
 ## Metamodels
 
