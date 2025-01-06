@@ -88,7 +88,7 @@ src/main/java/com/example/mde
 ### Use case diagram
 
 <p align="center">
-    <img width="70%" src="assets/dcu.PNG" />
+    <img width="70%" src="assets/dcu.png" />
 </p>
 
 ## Contributors
