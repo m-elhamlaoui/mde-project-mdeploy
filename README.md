@@ -12,12 +12,13 @@
 - [Metamodels](#metamodels)
   - [Initial project configuration metamodel](#initial-project-configuration-metamodel)
   - [Gitlab metamodel](#gitlab-metamodel)
-- [T2M transformation: Converting JSON data into initConfig model](#t2m-transformation-converting-json-data-into-initconfig-model)
-- [M2M transformation: From initConfig to Gitlab](#m2m-transformation-from-initconfig-to-gitlab)
-- [M2T transformation: From Gitlab to Yaml](#m2t-transformation-from-gitlab-to-yaml)
+- [T2M transformation](#t2m-transformation)
+- [M2M transformation](#m2m-transformation)
+- [M2T transformation](#m2t-transformation)
 - [T2M transformation: Converting JSON data into terraform model](#m2t-transformation-converting-json-data-into-terraform-model)
-- [M2T transformation: From Terraform to tf](#m2t-transformation-from-terraform-to-tf)
-
+- [Web API](#web-api)
+  - [Project structure](#project-structure)
+  - [Use case diagram](#use-case-diagram)
 - [Contributors](#contributors)
 
 ## Requirements
@@ -67,7 +68,7 @@
 To automate these different transformations, we can integrate our MDE files with a Spring RESTful API. 
 By importing the necesseray EMF library into the SpringBoot project, we can exploit models. 
 
-### Project structure:
+### Project structure
 ```
 src/main/java/com/example/mde
 ├── controller
