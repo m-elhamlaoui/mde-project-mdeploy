@@ -2,24 +2,23 @@ stages:
  - clone
  - build
  - test
- - test
  - deploy
 clone:
   stage: clone
   only:
    - push
   variables:
-    GIT_URL: https://example.com
+    GIT_URL: azedfg
     CREDENTIAL_ID: null
   script:
-   - git clone https://example.com
-   - git checkout main
+   - git clone azedfg
+   - git checkout sdfg
 build:
   stage: build
   only:
    - push
   script:
-   - mvn clean install
+   - jhgf
 test:
   stage: test
   only:
@@ -27,10 +26,10 @@ test:
   variables:
     TEST_CLASSES: Example.java
   script:
-   - mvn verify
+   - kjhgfd
 deploy:
   stage: deploy
   only:
    - push
   script:
-   - docker-compose up
+   - jhgfd

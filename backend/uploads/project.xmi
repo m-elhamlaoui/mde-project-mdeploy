@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" name="My Project" url="https://example.com" branch="main">
-  <build name="Maven" cmd="mvn clean install" params="-DskipTests"/>
-  <tests name="Unit Test" type="JUnit" cmd="mvn test" status="1"/>
-  <tests name="Integration Test" type="JUnit" cmd="mvn verify" status="2"/>
-  <deploy cmd="docker-compose up" name="Deploy"/>
+<InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" name="qsdfg" url="azedfg" branch="sdfg">
+  <build name="kjhgfjh" cmd="jhgf" params="kjhgfd"/>
+  <tests name="kjhgf" type="jkhgf" cmd="kjhgfd" status="1"/>
+  <deploy cmd="jhgfd" name="kjhgfjh"/>
 </InitConfig:Project>
