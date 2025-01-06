@@ -19,6 +19,9 @@
 - [Web API](#web-api)
   - [Project structure](#project-structure)
   - [Use case diagram](#use-case-diagram)
+- [Validating generated files](#validating-generated-files)
+  - [gitlab-ci.yml](#gitlab-ciyml)
+  - [main.tf](#maintf)
 - [Contributors](#contributors)
 
 ## Requirements
@@ -91,6 +94,19 @@ src/main/java/com/example/mde
 <p align="center">
     <img width="70%" src="assets/dcu.png" />
 </p>
+
+## Validating generated files
+
+### gitlab-ci.yml
+
+After testing the generated `gitlab-ci.yml` file on Gitlab, we can find it conforms to the yml syntax:
+
+<p align="center">
+    <img width="70%" src="assets/validate_generated_gitlab_yml_syntax.PNG" />
+</p>
+
+### main.tf
+
 
 ## Contributors
 
