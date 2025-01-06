@@ -2,6 +2,6 @@
 <InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" name="My Project" url="https://example.com" branch="main">
   <build name="Maven" cmd="mvn clean install" params="-DskipTests"/>
   <tests name="Unit Test" type="JUnit" cmd="mvn test" status="1"/>
-  <tests name="Integration Test" type="JUnit" cmd="mvn verify" status="2"/>
+  <tests name="Integration Test" type="JUnit" cmd="mvn verify" status="1"/>
   <deploy cmd="docker-compose up" name="Deploy"/>
 </InitConfig:Project>
