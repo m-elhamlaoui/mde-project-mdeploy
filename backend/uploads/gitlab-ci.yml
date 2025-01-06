@@ -1,6 +1,7 @@
 stages:
  - clone
  - build
+ - build
  - test
  - deploy
 clone:
@@ -8,17 +9,17 @@ clone:
   only:
    - push
   variables:
-    GIT_URL: azedfg
+    GIT_URL: https://github.com/example/myproject.git
     CREDENTIAL_ID: null
   script:
-   - git clone azedfg
-   - git checkout sdfg
+   - git clone https://github.com/example/myproject.git
+   - git checkout main
 build:
   stage: build
   only:
    - push
   script:
-   - jhgf
+   - docker build .
 test:
   stage: test
   only:
@@ -26,10 +27,10 @@ test:
   variables:
     TEST_CLASSES: Example.java
   script:
-   - kjhgfd
+   - mvn test
 deploy:
   stage: deploy
   only:
    - push
   script:
-   - jhgfd
+   - kubectl apply -f staging-deployment.yaml

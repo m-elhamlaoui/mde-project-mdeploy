@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<gitlab:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gitlab="https://gitlab.ma" name="qsdfg">
-  <stages xsi:type="gitlab:Clone" name="Clone" script="git clone azedfg" pipeline="/" url="azedfg" branch="sdfg">
+<gitlab:Pipeline xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gitlab="https://gitlab.ma" name="MyProject">
+  <stages xsi:type="gitlab:Clone" name="Clone" script="git clone https://github.com/example/myproject.git" pipeline="/" url="https://github.com/example/myproject.git" branch="main">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
-  <stages xsi:type="gitlab:Build" name="kjhgfjh" script="jhgf" order="1" pipeline="/">
+  <stages xsi:type="gitlab:Build" name="Build Step 1" script="mvn clean install" order="1" pipeline="/">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
-  <stages xsi:type="gitlab:Test" name="kjhgf" script="kjhgfd" order="2" pipeline="/" ClassesToTest="Example.java">
+  <stages xsi:type="gitlab:Build" name="Build Step 2" script="docker build ." order="1" pipeline="/">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
-  <stages xsi:type="gitlab:Deploy" name="kjhgfjh" script="jhgfd" order="3" pipeline="/">
+  <stages xsi:type="gitlab:Test" name="Unit Tests" script="mvn test" order="2" pipeline="/" ClassesToTest="Example.java">
+    <trigger name="Push Trigger" condition="push" type="manual"/>
+  </stages>
+  <stages xsi:type="gitlab:Deploy" name="Deploy to Staging" script="kubectl apply -f staging-deployment.yaml" order="3" pipeline="/">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
 </gitlab:Pipeline>
