@@ -9,9 +9,6 @@
   <stages xsi:type="gitlab:Test" name="Unit Test" script="mvn test" order="2" pipeline="/" ClassesToTest="Example.java">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
-  <stages xsi:type="gitlab:Test" name="Integration Test" script="mvn verify" order="2" pipeline="/" ClassesToTest="Example.java">
-    <trigger name="Push Trigger" condition="push" type="manual"/>
-  </stages>
   <stages xsi:type="gitlab:Deploy" name="Deploy" script="docker-compose up" order="3" pipeline="/">
     <trigger name="Push Trigger" condition="push" type="manual"/>
   </stages>
