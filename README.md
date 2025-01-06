@@ -107,6 +107,12 @@ After testing the generated `gitlab-ci.yml` file on Gitlab, we can find it confo
 
 ### main.tf
 
+We can also test the `main.tf` file on [ValidIaC](https://validiac.com/), we can find that the syntax is correct:
+
+<p align="center">
+    <img width="100%" src="assets/validate_generated_main_tf_syntax.PNG" />
+</p>
+
 
 ## Contributors
 
