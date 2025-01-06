@@ -1,4 +1,3 @@
-// src/Form.js
 import React, { useState } from "react";
 import "./Form.css"; // Import the CSS file for styling
 
@@ -8,11 +7,13 @@ const Form = () => {
       name: "",
       url: "",
       branch: "",
-      builds: [],
-      tests: [],
-      deploys: [],
+      build: [],
+      tests: [], // Changed from 'testss' to 'tests'
+      deploy: [],
     },
   });
+  const [showJsonPreview, setShowJsonPreview] = useState(false); // For showing JSON preview
+  const [jsonPreview, setJsonPreview] = useState(""); // Store JSON preview
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +39,9 @@ const Form = () => {
         ...prevData.project,
         [type]: [
           ...prevData.project[type],
-          { name: "", cmd: "", params: type === "builds" ? "" : undefined },
+          type === "tests"
+            ? { name: "", type: "", cmd: "", status: "" } // Adjusted for 'tests'
+            : { name: "", cmd: "", params: type === "build" ? "" : undefined },
         ],
       },
     }));
@@ -72,38 +75,57 @@ const Form = () => {
     });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     // Convert form data to JSON
-    const jsonData = JSON.stringify(formData, null, 2);
-    console.log("Generated JSON:", jsonData);
-  
-    // Send JSON to the backend
-    fetch("http://localhost:8089/api/projects/upload", {
+    const jsonData = JSON.stringify(formData, null, 2); // Pretty print JSON
+
+    // Show JSON preview before sending
+    setJsonPreview(jsonData);
+    setShowJsonPreview(true);
+  };
+
+  const handleConfirmSubmit = () => {
+    // Convert form data to JSON
+    const jsonData = JSON.stringify(formData);
+
+    // Create a Blob from JSON data
+    const jsonBlob = new Blob([jsonData], { type: "application/json" });
+
+    // Create FormData to send it as multipart/form-data
+    const formDataToSend = new FormData();
+    formDataToSend.append("file", jsonBlob, "project.json");
+
+    // Send the JSON file to the backend
+    fetch("http://localhost:8089/api/project/upload", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: jsonData,
+      body: formDataToSend,
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          // If the response is successful, return the YAML file as a Blob
+          return response.blob();
         } else {
-          throw new Error("Failed to submit data");
+          throw new Error("Failed to generate the YAML file.");
         }
       })
-      .then((data) => {
-        console.log("Response from backend:", data);
-        alert("Data submitted successfully!");
+      .then((yamlBlob) => {
+        // Create a link element to trigger the download
+        const link = document.createElement("a");
+        const url = window.URL.createObjectURL(yamlBlob);
+        link.href = url;
+        link.download = "project.yaml"; // Set the desired file name
+        link.click(); // Trigger the download
+        window.URL.revokeObjectURL(url); // Clean up the URL object
+        alert("YAML file generated and downloaded!");
       })
       .catch((error) => {
-        console.error("Error submitting data:", error);
-        alert("Failed to submit data. Please try again.");
+        console.error("Error:", error);
+        alert("Error generating or downloading YAML file.");
       });
   };
-  
 
   return (
     <div className="form-container">
@@ -144,14 +166,14 @@ const Form = () => {
 
         {/* Build Configurations */}
         <h3 className="section-title">Build Configurations</h3>
-        {formData.project.builds.map((build, index) => (
+        {formData.project.build.map((build, index) => (
           <div key={index} className="config-item">
             <input
               type="text"
               placeholder="Build Name"
               value={build.name}
               onChange={(e) =>
-                handleConfigChange("builds", index, "name", e.target.value)
+                handleConfigChange("build", index, "name", e.target.value)
               }
               className="config-input"
             />
@@ -160,7 +182,7 @@ const Form = () => {
               placeholder="Build Command"
               value={build.cmd}
               onChange={(e) =>
-                handleConfigChange("builds", index, "cmd", e.target.value)
+                handleConfigChange("build", index, "cmd", e.target.value)
               }
               className="config-input"
             />
@@ -169,14 +191,14 @@ const Form = () => {
               placeholder="Build Params"
               value={build.params}
               onChange={(e) =>
-                handleConfigChange("builds", index, "params", e.target.value)
+                handleConfigChange("build", index, "params", e.target.value)
               }
               className="config-input"
             />
             <button
               type="button"
               className="delete-btn"
-              onClick={() => handleDeleteConfig("builds", index)}
+              onClick={() => handleDeleteConfig("build", index)}
             >
               🗑️
             </button>
@@ -185,19 +207,19 @@ const Form = () => {
         <button
           type="button"
           className="add-btn"
-          onClick={() => handleAddConfig("builds")}
+          onClick={() => handleAddConfig("build")}
         >
           + Add Build Config
         </button>
 
-        {/* Test Configurations */}
-        <h3 className="section-title">Test Configurations</h3>
-        {formData.project.tests.map((test, index) => (
+        {/* Tests Configurations */}
+        <h3 className="section-title">Tests Configurations</h3>
+        {formData.project.tests.map((tests, index) => (
           <div key={index} className="config-item">
             <input
               type="text"
-              placeholder="Test Name"
-              value={test.name}
+              placeholder="Tests Name"
+              value={tests.name}
               onChange={(e) =>
                 handleConfigChange("tests", index, "name", e.target.value)
               }
@@ -205,10 +227,28 @@ const Form = () => {
             />
             <input
               type="text"
-              placeholder="Test Command"
-              value={test.cmd}
+              placeholder="Tests Type"
+              value={tests.type}
+              onChange={(e) =>
+                handleConfigChange("tests", index, "type", e.target.value)
+              }
+              className="config-input"
+            />
+            <input
+              type="text"
+              placeholder="Tests Command"
+              value={tests.cmd}
               onChange={(e) =>
                 handleConfigChange("tests", index, "cmd", e.target.value)
+              }
+              className="config-input"
+            />
+            <input
+              type="number"
+              placeholder="Tests Status"
+              value={tests.status}
+              onChange={(e) =>
+                handleConfigChange("tests", index, "status", e.target.value)
               }
               className="config-input"
             />
@@ -226,19 +266,19 @@ const Form = () => {
           className="add-btn"
           onClick={() => handleAddConfig("tests")}
         >
-          + Add Test Config
+          + Add Tests Config
         </button>
 
         {/* Deploy Configurations */}
         <h3 className="section-title">Deploy Configurations</h3>
-        {formData.project.deploys.map((deploy, index) => (
+        {formData.project.deploy.map((deploy, index) => (
           <div key={index} className="config-item">
             <input
               type="text"
               placeholder="Deploy Name"
               value={deploy.name}
               onChange={(e) =>
-                handleConfigChange("deploys", index, "name", e.target.value)
+                handleConfigChange("deploy", index, "name", e.target.value)
               }
               className="config-input"
             />
@@ -247,14 +287,14 @@ const Form = () => {
               placeholder="Deploy Command"
               value={deploy.cmd}
               onChange={(e) =>
-                handleConfigChange("deploys", index, "cmd", e.target.value)
+                handleConfigChange("deploy", index, "cmd", e.target.value)
               }
               className="config-input"
             />
             <button
               type="button"
               className="delete-btn"
-              onClick={() => handleDeleteConfig("deploys", index)}
+              onClick={() => handleDeleteConfig("deploy", index)}
             >
               🗑️
             </button>
@@ -263,15 +303,24 @@ const Form = () => {
         <button
           type="button"
           className="add-btn"
-          onClick={() => handleAddConfig("deploys")}
+          onClick={() => handleAddConfig("deploy")}
         >
           + Add Deploy Config
         </button>
 
         <button type="submit" className="submit-btn">
-          Generate JSON
+          Show JSON Preview
         </button>
       </form>
+
+      {/* Show JSON Preview */}
+      {showJsonPreview && (
+        <div className="json-preview">
+          <h3>JSON Preview</h3>
+          <pre>{jsonPreview}</pre>
+          <button onClick={handleConfirmSubmit}>Confirm and Submit</button>
+        </div>
+      )}
     </div>
   );
 };
