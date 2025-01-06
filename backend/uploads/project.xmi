@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" name="MyProject" url="https://github.com/example/myproject.git" branch="main">
-  <build name="Build Step 1" cmd="mvn clean install" params="-DskipTests"/>
-  <build name="Build Step 2" cmd="docker build ." params="-t myproject:latest"/>
-  <tests name="Unit Tests" type="JUnit" cmd="mvn test" status="1"/>
-  <deploy cmd="kubectl apply -f staging-deployment.yaml" name="Deploy to Staging"/>
+<InitConfig:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:InitConfig="https://initConfig.ma" name="NannyPal" url="azedfg" branch="kjhgfd">
+  <build name="jhgfd" cmd="hgfd" params="kjhgfds"/>
+  <tests name="lkjhgfcd" type="jhgfd" cmd="kjhgf" status="1"/>
+  <deploy cmd="drftgyhuj" name="drftgyhujk"/>
 </InitConfig:Project>
